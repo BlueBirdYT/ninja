@@ -1222,7 +1222,7 @@ async def ownerinfo(ctx):
 
 @client.command(pass_context=True)
 async def server(ctx):
-    await client.say('link to join support server https://discord.gg/6NPSunR')
+    await client.say('link to join support server https://discord.gg/5HcHjDj')
     
    
 @client.command(pass_context = True)
