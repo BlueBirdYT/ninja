@@ -542,7 +542,6 @@ async def setpartner(ctx):
       await client.create_channel(server, 'server-partner',everyone)
 
 @client.command(pass_context=True)
-@commands.cooldown(rate=1,per=86400,type=BucketType.user)
 async def partner(ctx, *, msg=None):
     if msg is None:
        await client.say("Please specify a partnership description")
