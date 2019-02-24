@@ -22,14 +22,15 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name='for Nhelp', type=2))
+        await client.change_presence(game=discord.Game(name='to Nhelp', type=2))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='for Nhelp2', type=2))
+        await client.change_presence(game=discord.Game(name='to Nhelp2', type=2))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='for Nhelp3', type=2))
+        await client.change_presence(game=discord.Game(name='to Nhelp3', type=2))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Music'))
         await asyncio.sleep(5)
+        await client.change_presence(gamer=discord.Game(name='new command movie is added', type=2))
         await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users', type=3))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
@@ -970,6 +971,7 @@ async def help(ctx):
     embed.add_field(name = 'avatar', value ='see a profile pic of a user or bot',inline = False)
     embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
     embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
+    embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
     await client.send_message(author,embed=embed)
     await client.say('📨 Check DMs For Information and do Nhelp2 for other commands help')
 @client.command(pass_context = True)
