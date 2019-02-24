@@ -83,7 +83,7 @@ async def ping(ctx):
       t1 = time.perf_counter()
       await client.send_typing(channel)
       t2 = time.perf_counter()
-      await client.say(ctx.message.author.mention + ",Pong: {}ms".format(round((t2-t1)*2000)))
+      await client.say(ctx.message.author.mention + ", Pong: {}ms".format(round((t2-t1)*2000)))
 
 @client.command(pass_context=True)
 async def jointest(ctx):
