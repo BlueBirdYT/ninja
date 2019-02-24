@@ -971,7 +971,6 @@ async def help(ctx):
     embed.add_field(name = 'avatar', value ='see a profile pic of a user or bot',inline = False)
     embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
     embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
-    embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
     await client.send_message(author,embed=embed)
     await client.say('📨 Check DMs For Information and do Nhelp2 for other commands help')
 @client.command(pass_context = True)
@@ -1028,6 +1027,7 @@ async def help3(ctx):
     embed.add_field(name = 'pause', value ='pause the song',inline = False)
     embed.add_field(name = 'resume', value ='resume the song',inline = False)
     embed.add_field(name = 'skip', value ='skip the current song',inline = False)
+    embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
     await client.send_message(author,embed=embed)
     await client.say('📨 Check DMs For Information')
 
