@@ -83,7 +83,7 @@ async def ping(ctx):
       t1 = time.perf_counter()
       await client.send_typing(channel)
       t2 = time.perf_counter()
-      await client.say(ctx.message.author.mention +"Pong: {}ms".format(round((t2-t1)*2000)))
+      await client.say(ctx.message.author.mention + "Pong: {}ms".format(round((t2-t1)*2000)))
 
 @client.command(pass_context=True)
 async def jointest(ctx):
@@ -1272,15 +1272,15 @@ async def movie(ctx, *, name:str=None):
 @client.event
 async def on_command_error(error, ctx):
     if isinstance(error, commands.NoPrivateMessage):
-        await client.send_message(ctx.message.channel, "**private messages.** " + ctx.message.author.mention)
+        await client.send_message(ctx.message.channel, "**private messages.** ")
     if isinstance(error, commands.MissingRequiredArgument):
-        await client.send_message(ctx.message.channel, "**Missing an argument:** " + ctx.message.author.mention)
+        await client.send_message(ctx.message.channel, "**Missing an argument:** ")
     elif isinstance(error, commands.DisabledCommand):
-        await client.send_message(ctx.message.channel, "** Command is disabled.** " + ctx.message.author.mention)
+        await client.send_message(ctx.message.channel, "** Command is disabled.** " )
     elif isinstance(error, commands.CheckFailure):
-        await client.send_message(ctx.message.channel, "**no permission.** " + ctx.message.author.mention)
+        await client.send_message(ctx.message.channel, "**no permission.** ")
     elif isinstance(error, commands.CommandNotFound):
-        await client.send_message(ctx.message.channel, "**wrong command.** " + ctx.message.author.mention)
+        await client.send_message(ctx.message.channel, "**wrong command.** ")
 
                 
             
