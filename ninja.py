@@ -7,6 +7,7 @@ import colorsys
 import aiohttp
 import random
 import os
+import requests
 import datetime
 from discord import Game, Embed, Color, Status, ChannelType
 
@@ -1235,6 +1236,36 @@ async def devsay(ctx, *, msg = None):
       else:
           await client.say(msg)
 
+@client.command(pass_context=True)
+async def movie(ctx, *, name:str=None):
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        await client.send_typing(ctx.message.channel)
+        if name is None:
+                embed=discord.Embed(description = "Please specify a movie, *eg. mv!movie Inception*", color = discord.Color((r << 16) + (g << 8) + b))
+                x = await client.say(embed=embed)
+                await asyncio.sleep(5)
+                return await client.delete_message(x)
+        key = "4210fd67"
+        url = "http://www.omdbapi.com/?t={}&apikey={}".format(name, key)
+        response = requests.get(url)
+        x = json.loads(response.text)
+        embed=discord.Embed(title = "**{}**".format(name).upper(), description = "Here is your movie {}".format(ctx.message.author.name), color = discord.Color((r << 16) + (g << 8) + b))
+        if x["Poster"] != "N/A":
+            embed.set_thumbnail(url = x["Poster"])
+            embed.add_field(name = "__Title__", value = x["Title"])
+            embed.add_field(name = "__Released__", value = x["Released"])
+            embed.add_field(name = "__Runtime__", value = x["Runtime"])
+            embed.add_field(name = "__Genre__", value = x["Genre"])
+            embed.add_field(name = "__Director__", value = x["Director"])
+            embed.add_field(name = "__Writer__", value = x["Writer"])
+            embed.add_field(name = "__Actors__", value = x["Actors"])
+            embed.add_field(name = "__Plot__", value = x["Plot"])
+            embed.add_field(name = "__Language__", value = x["Language"])
+            embed.add_field(name = "__Imdb Rating__", value = x["imdbRating"]+"/10")
+            embed.add_field(name = "__Type__", value = x["Type"])
+            embed.set_footer(text = "Information from the OMDB API")
+            await client.say(embed=embed)
+    
                 
             
             
