@@ -22,11 +22,11 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name='to Nhelp', type=2))
+        await client.change_presence(game=discord.Game(name=' Nhelp', type=2))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='to Nhelp2', type=2))
+        await client.change_presence(game=discord.Game(name=' Nhelp2', type=2))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='to Nhelp3', type=2))
+        await client.change_presence(game=discord.Game(name=' Nhelp3', type=2))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Music'))
         await asyncio.sleep(5)
