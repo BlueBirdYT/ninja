@@ -14,7 +14,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 Forbidden= discord.Embed(title="Permission Denied", description="1) Please check whether you have permission to perform this action or not. \n2) Please check whether my role has permission to perform this action in this channel or not. \n3) Please check my role position.", color=0x00ff00)
-client = commands.Bot(description="Bot prefix is N", command_prefix=commands.when_mentioned_or("N" ), pm_help = True)
+client = commands.Bot(description="Bot prefix is n!", command_prefix=commands.when_mentioned_or("n!" ), pm_help = True)
 client.remove_command('help')
 
 
@@ -22,19 +22,20 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name=' Nhelp', type=2))
-        await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name=' Nhelp2', type=2))
-        await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name=' Nhelp3', type=2))
-        await asyncio.sleep(5)
+        await client.change_presence(game=discord.Game(name=' n!help', type=2))
+        await asyncio.sleep(2)
+        await client.change_presence(game=discord.Game(name=' n!help2', type=2))
+        await asyncio.sleep(2)
+        await client.change_presence(game=discord.Game(name=' n!help3', type=2))
+        await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name='Music'))
-        await asyncio.sleep(5)
+        await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name='new command movie is added', type=2))
+        await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users', type=3))
-        await asyncio.sleep(5)
+        await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
-        await asyncio.sleep(5)
+        await asyncio.sleep(2)
         
 
 
@@ -53,9 +54,6 @@ def is_owner(ctx):
 
 @client.event
 async def on_member_join(member):
-    role = discord.utils.get(member.server.roles, name='||POKEMON TRAINERS||')
-    await client.add_roles(member, role)
-    print("In our server" + member.name + " just joined")
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
     embed.set_author(name='Welcome user')
@@ -145,7 +143,7 @@ async def unlock(ctx, channelname: discord.Channel=None):
 @client.command(pass_context = True)
 async def dm(ctx, user: discord.Member, *, msg: str):
    if user is None or msg is None:
-       await client.say('Invalid args. Use this command like: ``Ndm @user message``')
+       await client.say('Invalid args. Use this command like: ``n!dm @user message``')
    if ctx.message.author.server_permissions.administrator == False:
        await client.say('**You do not have permission to use this command**')
        return
@@ -183,7 +181,7 @@ async def setuplog(ctx):
 @client.command(pass_context=True)
 async def getuser(ctx, role: discord.Role = None):
     if role is None:
-        await client.say('Please tag a role to get users having it. Example- ``Ngetuser @role``')
+        await client.say('Please tag a role to get users having it. Example- ``n!getuser @role``')
         return
     if ctx.message.author.server_permissions.kick_members == False:
        await client.say('**You do not have permission to use this command**')
@@ -199,7 +197,7 @@ async def getuser(ctx, role: discord.Role = None):
 @client.command(pass_context = True)
 async def userinfo(ctx, user: discord.Member=None):
     if user is None:
-      await client.say('Please tag a user to get user information. Example- ``Nuserinfo @user``')
+      await client.say('Please tag a user to get user information. Example- ``n!userinfo @user``')
     if ctx.message.author.bot:
       return
     if ctx.message.author.server_permissions.kick_members == False:
@@ -238,10 +236,10 @@ async def roleinfo(ctx,*, role:discord.Role=None):
 @client.command(pass_context = True)
 async def rolecolor(ctx, role:discord.Role=None, value:str=None):
     if discord.utils.get(ctx.message.server.roles, name="{}".format(role)) is None:
-        await client.say("Use this command like ``Nrolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
+        await client.say("Use this command like ``n!rolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
         return
     if value is None:
-        await client.say("Use this command like ``Nrolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
+        await client.say("Use this command like ``n!rolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
         return
     if ctx.message.author.server_permissions.manage_roles == False:
         await client.say('**You do not have permission to use this command**')
@@ -273,7 +271,7 @@ async def role(ctx, user: discord.Member=None, *, role: discord.Role = None):
 @commands.has_permissions(kick_members=True)
 async def warn(ctx, userName: discord.User=None,*, message:str=None):
     if userName is None:
-      await client.say('Please tag a person to warn user. Example- ``Nwarn @user <reason>``')
+      await client.say('Please tag a person to warn user. Example- ``n!warn @user <reason>``')
       return
     else:
       await client.send_message(userName, "You have been warned for: **{}**".format(message))
@@ -415,10 +413,10 @@ async def addchannel(ctx, channel: str=None):
 async def mute(ctx, member: discord.Member=None, mutetime=None):
     msgauthor = ctx.message.author
     if member is None:
-        await client.say('Please specify member i.e. Mention a member to mute. Example-``Nmute @user <time in minutes>``')
+        await client.say('Please specify member i.e. Mention a member to mute. Example-``n!mute @user <time in minutes>``')
         return
     if mutetime is None:
-        await client.say('Please specify time i.e. Mention a member to mute with time. Example-``Nmute @user <time in minutes>``')
+        await client.say('Please specify time i.e. Mention a member to mute with time. Example-``n!mute @user <time in minutes>``')
         return
     if member.server_permissions.kick_members:
         await client.say('**You cannot mute admin/moderator!**')
@@ -493,7 +491,7 @@ async def flipcoin(ctx):
 @client.command(pass_context = True)
 async def unmute(ctx, member: discord.Member=None):
     if member is None:
-      await client.say('Please specify member i.e. Mention a member to unmute. Example- ``Nunmute @user``')
+      await client.say('Please specify member i.e. Mention a member to unmute. Example- ``n!unmute @user``')
     if ctx.message.author.bot:
       return
     else:
@@ -513,7 +511,7 @@ async def unmute(ctx, member: discord.Member=None):
 @commands.cooldown(rate=5,per=86400,type=BucketType.user)
 async def access(ctx, member: discord.Member=None):
     if member is None:
-      await client.say("Please specify a member to give access to him. Example- ``Naccess @user``")
+      await client.say("Please specify a member to give access to him. Example- ``n!access @user``")
     if ctx.message.author.bot:
       return
     if ctx.message.author.server_permissions.kick_members == False:
@@ -562,7 +560,7 @@ async def delrole(ctx,*, role: discord.Role = None):
 @commands.has_permissions(manage_nicknames=True)
 async def setnick(ctx, user: discord.Member=None, *, nickname=None):
     if user is None:
-      await client.say('Please tag a person to change nickname. Example- ``Nsetnick @user <new nickname>``')
+      await client.say('Please tag a person to change nickname. Example- ``n!setnick @user <new nickname>``')
       return
     else:
       await client.change_nickname(user, nickname)
@@ -582,7 +580,7 @@ async def purge(ctx, number: int):
 @commands.has_permissions(ban_members=True)
 async def ban(ctx,user:discord.Member=None):
     if user is None:
-      await client.say('Please specify a member to ban. Example- ``Nban @user``')
+      await client.say('Please specify a member to ban. Example- ``n!ban @user``')
     if user.server_permissions.ban_members:
       await client.say('**He is mod/admin and i am unable to ban him/her**')
       return
@@ -749,7 +747,7 @@ async def rps(ctx, *, message=None):
     embed=discord.Embed(title = "Bot VS {}".format(ctx.message.author.name), color = discord.Color((r << 16) + (g << 8) + b))
     embed.set_author(name = ctx.message.author.name, icon_url = ctx.message.author.avatar_url)
     if message is None:
-        await client.say('Use it like ``Nrps rock or scissors or paper`` anyone of them to make this command work properly')
+        await client.say('Use it like ``n!rps rock or scissors or paper`` anyone of them to make this command work properly')
     if message.lower() != ans[0] and message.lower() != ans[1] and message.lower() != ans[2] :
         return await client.say("Pick Rock Paper or Scissors")
     elif message.lower() == pick:
@@ -779,7 +777,7 @@ async def rps(ctx, *, message=None):
 @commands.has_permissions(kick_members=True)
 async def kick(ctx,user:discord.Member):
     if user is None:
-      await client.say('Please mention a member to kick. Example- ``Nkick @user``')
+      await client.say('Please mention a member to kick. Example- ``n!kick @user``')
     if user.server_permissions.kick_members:
       await client.say('**He is mod/admin and i am unable to kick him/her**')
       return
@@ -797,7 +795,7 @@ async def kiss(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     randomurl = ["https://media3.giphy.com/media/G3va31oEEnIkM/giphy.gif", "https://i.imgur.com/eisk88U.gif", "https://media1.tenor.com/images/e4fcb11bc3f6585ecc70276cc325aa1c/tenor.gif?itemid=73863", "http://25.media.tumblr.com/6a0377e5cab1c8695f8f115b756187a8/tumblr_msbc5kC6uD1s9g6xgo1_500.gif", "https://assets.tumblr.com/images/x.gif", "https://66.media.tumblr.com/5f85ebb14dde21c41d4873bc2ec2918e/tumblr_oyr39no7iU1tty0zlo1_500.gif", "https://66.media.tumblr.com/a1a7fec7eb7b18c29b939ab00cd096db/tumblr_mulzefKWMm1sibpv8o1_500.gif" , "https://66.media.tumblr.com/befc3f8aa8e0de74004d314397799fac/tumblr_og2ac38IqO1u7esouo1_500.gif", "https://66.media.tumblr.com/d2a3329389610c80816d206d566c0927/tumblr_okc883Nfcl1w264geo1_540.gif"]                                                  
     if user.id == ctx.message.author.id:
-        await client.say("Goodluck kissing yourself {}".format(ctx.message.author.mention))
+        await client.say("Goodluck kissing yourself :joy: {}".format(ctx.message.author.mention))
     else:
         embed = discord.Embed(title=f"{user.name} You just got a kiss from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
@@ -972,7 +970,7 @@ async def help(ctx):
     embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
     embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
     await client.send_message(author,embed=embed)
-    await client.say('📨 Check DMs For Information and do Nhelp2 for other commands help')
+    await client.say('📨 Check DMs For Information and do n!help2 for other commands help')
 @client.command(pass_context = True)
 async def help2(ctx):
     author = ctx.message.author
@@ -1004,7 +1002,7 @@ async def help2(ctx):
     embed.add_field(name = 'joke', value ='hear jokes from the bot',inline = False)
     embed.add_field(name = 'rolldice', value ='roll a dice',inline = False)
     await client.send_message(author,embed=embed)
-    await client.say('📨 Check DMs For Information and Nhelp3 for more commands help')
+    await client.say('📨 Check DMs For Information and n!help3 for more commands help')
 @client.command(pass_context = True)
 async def help3(ctx):
     author = ctx.message.author
