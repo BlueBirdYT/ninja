@@ -1267,21 +1267,7 @@ async def movie(ctx, *, name:str=None):
             embed.set_footer(text = "Information from the OMDB API")
             await client.say(embed=embed)
     
-@client.event
-async def on_command_error(error, ctx):
-    if isinstance(error, commands.NoPrivateMessage):
-        await client.send_message(ctx.message.channel, "**private messages.** ")
-    if isinstance(error, commands.MissingRequiredArgument):
-        await client.send_message(ctx.message.channel, "**Missing an argument:** ")
-    elif isinstance(error, commands.DisabledCommand):
-        await client.send_message(ctx.message.channel, "** Command is disabled.** " )
-    elif isinstance(error, commands.CheckFailure):
-        await client.send_message(ctx.message.channel, "**no permission.** ")
-    elif isinstance(error, commands.CommandNotFound):
-        await client.send_message(ctx.message.channel, "**wrong command.** ")
 
-                
-            
             
 
 client.run(os.getenv('Token'))
