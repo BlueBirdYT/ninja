@@ -1292,7 +1292,7 @@ async def movie(ctx, *, name:str=None):
     
 @client.event
 async def on_message(message):
-    if message.content.startswith('@Official NinjaBot™#1300'):
+    if message.content.startswith('@Official NinjaBot™'):
         await client.say('My prefix is n! or mention me')
 
             
