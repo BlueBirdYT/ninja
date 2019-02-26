@@ -24,19 +24,19 @@ async def status_task():
     while True:
         await client.change_presence(game=discord.Game(name=' n!help', type=2))
         await asyncio.sleep(2)
-        await client.change_presence(game=discord.Game(name=' n!help2', type=2))
-        await asyncio.sleep(2)
-        await client.change_presence(game=discord.Game(name=' n!help3', type=2))
-        await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name='Music'))
         await asyncio.sleep(2)
-        await client.change_presence(game=discord.Game(name='new command movie is added', type=2))
+        await client.change_presence(game=discord.Game(name='Help command is even more better', type=2))
         await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users', type=3))
         await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
         await asyncio.sleep(2)
-        
+     
+
+    
+    
+    
 
 
 @client.event
@@ -47,10 +47,104 @@ async def on_ready():
      print('created by lolgamer and bluebird')
      client.loop.create_task(status_task())
 
+ @client.event
+async def on_reaction_add(reaction, user):
+  if reaction.message.server is None:
+if reaction.emoji == '🇬':
+     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Help')
+    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
+    embed.add_field(name = 'ping', value ='ping is a common command of bots',inline = False)
+    embed.add_field(name = 'jointest ',value ='a test for the welcomer feature',inline = False)
+    embed.add_field(name = 'servers ',value ='command for only the devs of the bot',inline = False)
+    embed.add_field(name = 'lock',value ='lock channels',inline = False)
+    embed.add_field(name = 'unlock',value ='unlock channels',inline = False)
+    embed.add_field(name = 'dm',value ='bot dm a users but administrator needed',inline = False)
+    embed.add_field(name = 'setw',value ='setup welcomer',inline = False)
+    embed.add_field(name = 'setuplog',value ='setup log channel',inline = False)
+    embed.add_field(name = 'getuser',value ='check which role a user has',inline = False)
+    embed.add_field(name = 'userinfo',value ='info of a user',inline = False)
+    embed.add_field(name = 'roleinfo',value ='info of a role',inline = False)
+    embed.add_field(name = 'rolecolor',value ='change a roles color',inline = False)
+    embed.add_field(name = 'role',value ='add or remove a role from a user',inline = False)
+    embed.add_field(name = 'warn', value ='warn a user',inline = False)
+    embed.add_field(name = 'virus', value ='put a fake virus on a user',inline = False)
+    embed.add_field(name = 'invites', value ='check your invites or someone elses',inline = False)
+    embed.add_field(name = 'tweet', value ='tweet something lol',inline = False)
+    embed.add_field(name = 'announce', value ='announce something',inline = False)
+    embed.add_field(name = 'addchannel', value ='create a channel',inline = False)
+    embed.add_field(name = 'delchannel', value ='delete a channel',inline = False)
+    embed.add_field(name = 'mute', value ='mute a user',inline = False)
+    embed.add_field(name = 'meme', value ='see memes',inline = False)
+    embed.add_field(name = 'avatar', value ='see a profile pic of a user or bot',inline = False)
+    embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
+    embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
+    await client.send_message(author,embed=embed)
+  if reaction.emoji == '🇲':
+     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Help2')
+    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')    
+    embed.add_field(name = 'access', value ='give access to a member',inline = False)
+    embed.add_field(name = 'addrole', value ='create a role',inline = False)
+    embed.add_field(name = 'delrole', value ='delete a role',inline = False)
+    embed.add_field(name = 'setnick', value ='set a nickname for a user',inline = False)
+    embed.add_field(name = 'purge', value ='delete messages',inline = False)
+    embed.add_field(name = 'ban', value ='ban a user',inline = False)
+    embed.add_field(name = 'unban', value ='unban a user',inline = False)
+    embed.add_field(name = 'bans', value ='list of the people who are banned',inline = False)
+    embed.add_field(name = 'serverinfo', value ='info of the server',inline = False)
+    embed.add_field(name = 'membercount', value ='check how many members,users and bots you have',inline = False)
+    embed.add_field(name = 'happybday', value ='say happy birthday to someone',inline = False)
+    embed.add_field(name = 'slap', value ='slap someone',inline = False)
+    embed.add_field(name = 'damn', value ='gif command',inline = False)
+    embed.add_field(name = 'burned', value ='gif command',inline = False)
+    embed.add_field(name = 'savage', value ='gif command',inline = False)
+    embed.add_field(name = 'thuglife', value ='gif command',inline = False)
+    embed.add_field(name = 'google', value ='search on google',inline = False)
+    embed.add_field(name = 'rps', value ='play rock paper scissors',inline = False)
+    embed.add_field(name = 'kick', value ='kick a user',inline = False)
+    embed.add_field(name = 'kiss', value ='kiss someone',inline = False)
+    embed.add_field(name = 'hug', value ='hug someone',inline = False)
+    embed.add_field(name = 'joke', value ='hear jokes from the bot',inline = False)
+    embed.add_field(name = 'rolldice', value ='roll a dice',inline = False)
+    await client.send_message(author,embed=embed)
+  if reaction.emoji == '🎦':
+     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Help')
+    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')    
+    embed.add_field(name = 'invite', value ='invite the bot to a server',inline = False)
+    embed.add_field(name = 'say', value ='make the bot say anything but administrator perms is required to use it',inline = False)
+    embed.add_field(name = 'remind', value ='remind yourself',inline = False)
+    embed.add_field(name = 'mention', value ='makes a role mentionable and pings them with the message and makes them unmentionable',inline = False)
+    embed.add_field(name = 'ownerinfo', value ='check the bots owner',inline = False)
+    embed.add_field(name = 'poll', value ='make a poll',inline = False)
+    embed.add_field(name = 'server', value ='link to the support server',inline = False)
+    embed.add_field(name = 'play', value ='play songs',inline = False)
+    embed.add_field(name = 'stop', value ='stop the bot from playing songs',inline = False)
+    embed.add_field(name = 'queue', value ='see the queue',inline = False)
+    embed.add_field(name = 'np', value ='check the current song playing',inline = False)
+    embed.add_field(name = 'volume', value ='check the current volume and increase it by saying *volume (amount)',inline = False)
+    embed.add_field(name = 'pause', value ='pause the song',inline = False)
+    embed.add_field(name = 'resume', value ='resume the song',inline = False)
+    embed.add_field(name = 'skip', value ='skip the current song',inline = False)
+    embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
+    await client.send_message(author,embed=embed)
+    
+           
+        
+        
+        
+        
+        
+        
 def is_owner(ctx):
      return ctx.message.author.id in ["455322915471097857","488271857561239572"]
 
 
+    
 
 @client.event
 async def on_member_join(member):
@@ -939,95 +1033,30 @@ async def remind(ctx, time=None, *,remind=None):
 
 @client.command(pass_context = True)
 async def help(ctx):
-    author = ctx.message.author
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Help')
-    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
-    embed.add_field(name = 'ping', value ='ping is a common command of bots',inline = False)
-    embed.add_field(name = 'jointest ',value ='a test for the welcomer feature',inline = False)
-    embed.add_field(name = 'servers ',value ='command for only the devs of the bot',inline = False)
-    embed.add_field(name = 'lock',value ='lock channels',inline = False)
-    embed.add_field(name = 'unlock',value ='unlock channels',inline = False)
-    embed.add_field(name = 'dm',value ='bot dm a users but administrator needed',inline = False)
-    embed.add_field(name = 'setw',value ='setup welcomer',inline = False)
-    embed.add_field(name = 'setuplog',value ='setup log channel',inline = False)
-    embed.add_field(name = 'getuser',value ='check which role a user has',inline = False)
-    embed.add_field(name = 'userinfo',value ='info of a user',inline = False)
-    embed.add_field(name = 'roleinfo',value ='info of a role',inline = False)
-    embed.add_field(name = 'rolecolor',value ='change a roles color',inline = False)
-    embed.add_field(name = 'role',value ='add or remove a role from a user',inline = False)
-    embed.add_field(name = 'warn', value ='warn a user',inline = False)
-    embed.add_field(name = 'virus', value ='put a fake virus on a user',inline = False)
-    embed.add_field(name = 'invites', value ='check your invites or someone elses',inline = False)
-    embed.add_field(name = 'tweet', value ='tweet something lol',inline = False)
-    embed.add_field(name = 'announce', value ='announce something',inline = False)
-    embed.add_field(name = 'addchannel', value ='create a channel',inline = False)
-    embed.add_field(name = 'delchannel', value ='delete a channel',inline = False)
-    embed.add_field(name = 'mute', value ='mute a user',inline = False)
-    embed.add_field(name = 'meme', value ='see memes',inline = False)
-    embed.add_field(name = 'avatar', value ='see a profile pic of a user or bot',inline = False)
-    embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
-    embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
-    await client.send_message(author,embed=embed)
-    await client.say('📨 Check DMs For Information and do n!help2 for other commands help')
-@client.command(pass_context = True)
-async def help2(ctx):
-    author = ctx.message.author
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Help2')
-    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')    
-    embed.add_field(name = 'access', value ='give access to a member',inline = False)
-    embed.add_field(name = 'addrole', value ='create a role',inline = False)
-    embed.add_field(name = 'delrole', value ='delete a role',inline = False)
-    embed.add_field(name = 'setnick', value ='set a nickname for a user',inline = False)
-    embed.add_field(name = 'purge', value ='delete messages',inline = False)
-    embed.add_field(name = 'ban', value ='ban a user',inline = False)
-    embed.add_field(name = 'unban', value ='unban a user',inline = False)
-    embed.add_field(name = 'bans', value ='list of the people who are banned',inline = False)
-    embed.add_field(name = 'serverinfo', value ='info of the server',inline = False)
-    embed.add_field(name = 'membercount', value ='check how many members,users and bots you have',inline = False)
-    embed.add_field(name = 'happybday', value ='say happy birthday to someone',inline = False)
-    embed.add_field(name = 'slap', value ='slap someone',inline = False)
-    embed.add_field(name = 'damn', value ='gif command',inline = False)
-    embed.add_field(name = 'burned', value ='gif command',inline = False)
-    embed.add_field(name = 'savage', value ='gif command',inline = False)
-    embed.add_field(name = 'thuglife', value ='gif command',inline = False)
-    embed.add_field(name = 'google', value ='search on google',inline = False)
-    embed.add_field(name = 'rps', value ='play rock paper scissors',inline = False)
-    embed.add_field(name = 'kick', value ='kick a user',inline = False)
-    embed.add_field(name = 'kiss', value ='kiss someone',inline = False)
-    embed.add_field(name = 'hug', value ='hug someone',inline = False)
-    embed.add_field(name = 'joke', value ='hear jokes from the bot',inline = False)
-    embed.add_field(name = 'rolldice', value ='roll a dice',inline = False)
-    await client.send_message(author,embed=embed)
-    await client.say('📨 Check DMs For Information and n!help3 for more commands help')
-@client.command(pass_context = True)
-async def help3(ctx):
-    author = ctx.message.author
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Help')
-    embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')    
-    embed.add_field(name = 'invite', value ='invite the bot to a server',inline = False)
-    embed.add_field(name = 'say', value ='make the bot say anything but administrator perms is required to use it',inline = False)
-    embed.add_field(name = 'remind', value ='remind yourself',inline = False)
-    embed.add_field(name = 'mention', value ='makes a role mentionable and pings them with the message and makes them unmentionable',inline = False)
-    embed.add_field(name = 'ownerinfo', value ='check the bots owner',inline = False)
-    embed.add_field(name = 'poll', value ='make a poll',inline = False)
-    embed.add_field(name = 'server', value ='link to the support server',inline = False)
-    embed.add_field(name = 'play', value ='play songs',inline = False)
-    embed.add_field(name = 'stop', value ='stop the bot from playing songs',inline = False)
-    embed.add_field(name = 'queue', value ='see the queue',inline = False)
-    embed.add_field(name = 'np', value ='check the current song playing',inline = False)
-    embed.add_field(name = 'volume', value ='check the current volume and increase it by saying *volume (amount)',inline = False)
-    embed.add_field(name = 'pause', value ='pause the song',inline = False)
-    embed.add_field(name = 'resume', value ='resume the song',inline = False)
-    embed.add_field(name = 'skip', value ='skip the current song',inline = False)
-    embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
-    await client.send_message(author,embed=embed)
-    await client.say('📨 Check DMs For Information')
+    if ctx.message.author.bot:
+      return
+    else:
+      author = ctx.message.author
+      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+      embed.set_author(name='Help')
+      embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
+      embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/5HcHjDj',inline = False)
+      embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
+      embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
+      embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
+      dmmessage = await client.send_message(author,embed=embed)
+      reaction1 = '🇲'
+      reaction2 = '🇬'
+      reaction3 = '🎦'
+      await client.add_reaction(dmmessage, reaction1)
+      await client.add_reaction(dmmessage, reaction2)
+      await client.add_reaction(dmmessage, reaction3)
+      await client.say('📨 Check DMs For Information')
+    
+    
+    
+    
 
 @client.command(pass_context = True)
 @commands.check(is_owner)
