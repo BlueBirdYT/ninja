@@ -1290,6 +1290,10 @@ async def movie(ctx, *, name:str=None):
             embed.set_footer(text = "Information from the OMDB API")
             await client.say(embed=embed)
     
+@client.event
+async def on_message(message):
+    if message.content.startswith('@Official NinjaBot™#1300'):
+        await client.say('My prefix is n! or mention me')
 
             
 
