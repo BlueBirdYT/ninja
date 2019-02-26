@@ -79,7 +79,7 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'avatar', value ='see a profile pic of a user or bot',inline = False)
             embed.add_field(name = 'flipcoin', value ='flip a coin',inline = False)
             embed.add_field(name = 'unmute', value ='unmute a user',inline = False)
-            await client.send_message(author,embed=embed)
+            await client.send_message(user,embed=embed)
      if reaction.emoji == '🇲':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
            embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
@@ -108,7 +108,7 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'hug', value ='hug someone',inline = False)
            embed.add_field(name = 'joke', value ='hear jokes from the bot',inline = False)
            embed.add_field(name = 'rolldice', value ='roll a dice',inline = False)
-           await client.send_message(author,embed=embed)
+           await client.send_message(user,embed=embed)
      if reaction.emoji == '🎦':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
            embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
@@ -130,7 +130,7 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'resume', value ='resume the song',inline = False)
            embed.add_field(name = 'skip', value ='skip the current song',inline = False)
            embed.add_field(name = 'movie', value ='find the information for a movie',inline = False)
-           await client.send_message(author,embed=embed) 
+           await client.send_message(user,embed=embed) 
         
     
    
