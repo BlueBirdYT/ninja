@@ -47,7 +47,7 @@ async def on_ready():
      print('created by lolgamer and bluebird')
      client.loop.create_task(status_task())
 
- @client.event
+@client.event
 async def on_reaction_add(reaction, user):
   if reaction.message.server is None:
 if reaction.emoji == '🇬':
