@@ -1290,9 +1290,8 @@ async def movie(ctx, *, name:str=None):
  
 
 @client.event
-async def on_message(message):
-    await client.process_commands(message)
-     if '<@487552378497662978>' in message.content:
+async def on_message(message):     
+    if '<@487552378497662978>' in message.content:
           msg = 'My prefix is n! and use ``n!help`` for help!'.format(message)
           msg2 = await client.send_message(message.channel, msg)
             
