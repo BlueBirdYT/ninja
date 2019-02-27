@@ -1291,10 +1291,10 @@ async def movie(ctx, *, name:str=None):
 
 @client.event
 async def on_message(message):
-    await client.process_commands(message)
-    if <anything> then <anything>:
-        if '<@botid>' in message.content:
-            await client.say('My prefix is n! and do n!help for more information!')
+await client.process_commands(message)
+if <anything> then <anything>:
+    if '<@botid>' in message.content:
+        await client.say('My prefix is n! and do n!help for more information!')
 
             
     
