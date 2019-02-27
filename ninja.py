@@ -1287,6 +1287,14 @@ async def movie(ctx, *, name:str=None):
             embed.add_field(name = "__Type__", value = x["Type"])
             embed.set_footer(text = "Information from the OMDB API")
             await client.say(embed=embed)
+ 
+
+@client.event()
+async def on_message():
+    if '<@botid>' in message.content:
+        await client.say('My prefix is n! and type n!help for more information!')
+
+            
     
 
             
