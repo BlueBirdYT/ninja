@@ -1289,7 +1289,7 @@ async def movie(ctx, *, name:str=None):
             await client.say(embed=embed)
  
 
-@client.event()
+@client.event(pass_context =True)
 async def on_message():
     if '<@botid>' in message.content:
         await client.say('My prefix is n! and type n!help for more information!')
