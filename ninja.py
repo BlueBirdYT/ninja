@@ -1292,9 +1292,9 @@ async def movie(ctx, *, name:str=None):
 @client.event
 async def on_message(message):
     await client.process_commands(message)
-    if <@botid> then <@botid>:
-        await client.say('My prefix is n! and do n!help for more information!')
-
+     if '<@487552378497662978>' in message.content:
+          msg = 'My prefix is n! and use ``n!help`` for help!'.format(message)
+          msg2 = await client.send_message(message.channel, msg)
             
     
 
