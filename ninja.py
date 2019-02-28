@@ -1270,7 +1270,12 @@ async def movie(ctx, *, name:str=None):
             embed.set_footer(text = "Information from the OMDB API")
             await client.say(embed=embed)
  
-
+@client.event
+async def on_message(message):
+    await client.process_commands(message)
+     if '<@>' in message.content:
+          msg = '**my prefix is n!, Use ``n!help`` for more information**'.format(message)
+          msg2 = await client.send_message(message.channel, msg)
 
             
     
