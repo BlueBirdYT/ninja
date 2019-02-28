@@ -147,7 +147,7 @@ async def on_reaction_add(reaction, user):
         
         
 def is_owner(ctx):
-     return ctx.message.author.id in ["455322915471097857","488271857561239572"]
+     return ctx.message.author.id in ["455322915471097857","488271857561239572","485403000257642496"]
 
 
     
