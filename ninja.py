@@ -1271,11 +1271,7 @@ async def movie(ctx, *, name:str=None):
             await client.say(embed=embed)
  
 
-@client.event
-async def on_message(message):
-    if '<@487552378497662978>' in message.content:
-          msg = 'Use ``n!help`` for help'.format(message)
-          msg2 = await client.send_message(message.channel, msg)
+
             
     
 
