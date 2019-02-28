@@ -32,6 +32,10 @@ async def status_task():
         await asyncio.sleep(2)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
         await asyncio.sleep(2)
+        client.user.setStatus('dnd')
+        await asyncio.sleep(5)
+
+
      
 
     
