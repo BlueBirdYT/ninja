@@ -1276,9 +1276,7 @@ async def on_message(message):
     if '<@487552378497662978>' in message.content:
         msg = '**my prefix is n!, Use ``n!help`` for more information!**'.format(message)
         msg2 = await client.send_message(message.channel, msg)
-    if '<@455322915471097857>' in message.content:
-        msg = '**my dev is <@455322915471097857> so dm him if you need help!**'.format(message)
-        msg2 = await client.send_message(message.channel, msg)
+   
 
             
     
