@@ -1193,46 +1193,8 @@ async def ownerinfo(ctx):
 
 @client.command(pass_context=True)
 async def server(ctx):
-    await client.say('support server: ___**----------- Welcome to Ninja Legends 2 ------------**___
-:sunglasses:  Yo welcome to our server and thank you for joining our server :sunglasses: 
-:clock: Hope you enjoy your stay :clock: 
- ___***:sparkles: What we provide :sparkles:
-:tada: Pokecord
-:tada: 24/7 moderation
-:tada: Giveaways every week
-:tada: friendly staff
-:tada:  gyms and tournaments 
-:tada: Music
-:tada: our own bot called NinjaBot***___
-Thats all!
-We are newly friendly community and we make sure you don't get bored
-:point_up: :point_up: 
-:key2: Info :key2: 
-this is a server where you can **ENJOY** :) :) and we can make bots for you which you must dm the owner which BlueBird ❄ Froakie collector#0440 
+    await client.say('support server: https://discord.gg/GhYX7zU')
 
-We will have fun together
-
-Ninja nations we are the best if it is idk xD
-
-:tada: So what are ya'll waiting for come on and join **US**
-
-**disclaimer: Donating lots of froakies to owner will give you awesome member role as a reward!**
-
-
-:sparkles: Staff support :sparkles: 
-dm a staff or report in #report-a-user 
-to give support or a feedback do it in #support-feedback 
-:sparkles: thank you :sparkles: 
-thank you for reading and show us your support my joining our awesome community   
-
-___***JOIN & SHOW YOUR SUPPORT***___
-
-Server link: https://discord.gg/GhYX7zU
-Click this link to join our awesome community
-https://cdn.discordapp.com/attachments/530103618750251010/546372541334159380/IMG_20190216_221910.jpg
-https://media.giphy.com/media/8c0TlHB3P1VxwDq0eX/giphy.gif
-:point_up: :point_up:')
-    
    
 @client.command(pass_context = True)
 @commands.check(is_owner)
