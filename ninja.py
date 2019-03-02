@@ -71,7 +71,7 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'n!role (mod or admin is required)',value ='use it like n!role @user (rolename)',inline = False)
             embed.add_field(name = 'n!warn (mod or admin is required)', value ='use it like n!warn @user (reason)',inline = False)
             embed.add_field(name = 'n!virus', value ='use it like n!virus @user',inline = False)
-            embed.add_field(name = 'n!invites', value ='use it like !invites or !invites @user',inline = False)
+            embed.add_field(name = 'n!invites', value ='use it like n!invites or n!invites @user',inline = False)
             embed.add_field(name = 'n!tweet', value ='use it like n!tweet (name) (msg)',inline = False)
             embed.add_field(name = 'n!announce (admin is required)', value ='use it like n!announce #channel (msg)',inline = False)
             embed.add_field(name = 'n!addchannel (admin is required)', value ='use it like n!addchannel (name)',inline = False)
