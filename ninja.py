@@ -60,7 +60,7 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'n!jointest (admin is required)',value ='use it like n!jointest',inline = False)
             embed.add_field(name = 'n!servers ',value ='command for only the devs of the bot',inline = False)
             embed.add_field(name = 'n!lock',value ='use it like n!lock',inline = False)
-            embed.add_field(name = 'n!unlock',value ='use it like n!lock',inline = False)
+            embed.add_field(name = 'n!unlock',value ='use it like n!unlock',inline = False)
             embed.add_field(name = 'n!dm (admin is required)',value ='use it like n!dm @user (msg)',inline = False)
             embed.add_field(name = 'n!setw (admin is required)',value ='use it like n!setw',inline = False)
             embed.add_field(name = 'n!setuplog (admin is required)',value ='use it like n!setuplog',inline = False)
