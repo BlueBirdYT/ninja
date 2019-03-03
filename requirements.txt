@@ -1,4 +1,4 @@
 discord.py
 asyncio
 requests
-discord.AutoShardedClient
+
