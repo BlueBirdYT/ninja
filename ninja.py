@@ -1003,6 +1003,8 @@ async def remind(ctx, time=None, *,remind=None):
 
 @client.command(pass_context = True)
 async def help(ctx):
+    await client.say('sending')
+    await asyncio.sleep(2)
     if ctx.message.author.bot:
       return
     else:
@@ -1023,8 +1025,6 @@ async def help(ctx):
       await client.add_reaction(dmmessage, reaction1)
       await client.add_reaction(dmmessage, reaction2)
       await client.add_reaction(dmmessage, reaction3)
-      await client.say('sending')
-      await asyncio.sleep(2)
       await client.say('📨 Check DMs For Information')
                            
     
