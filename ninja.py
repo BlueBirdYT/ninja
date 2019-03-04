@@ -95,7 +95,7 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'n!unban (mod or admin is required)', value ='n!unban @user',inline = False)
            embed.add_field(name = 'n!bans (admin is required)', value =' n!bans',inline = False)
            embed.add_field(name = 'n!serverinfo', value =' n!serverinfo',inline = False)
-           embed.add_field(name = 'n!membercount(admin is required), value =' n!membercount',inline = False)
+           embed.add_field(name = 'n!membercount(admin is required)', value ='n!membercount',inline = False)
            embed.add_field(name = 'n!happybday', value ='n!happybday to send a happy birthday message to someone',inline = False)            
            embed.add_field(name = 'n!slap', value ='n!slap @user',inline = False)
            embed.add_field(name = 'n!damn', value ='gif command',inline = False)
