@@ -1015,6 +1015,7 @@ async def help(ctx):
       embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
       embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
       embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
+      embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇲'
       reaction2 = '🇬'
