@@ -1470,11 +1470,6 @@ async def on_message(message):
                 embed.add_field(name = 'Channel:',value ='{}'.format(message.channel.name),inline = False)
                 embed.add_field(name = 'Message:',value ='{}'.format(message.content),inline = False)
                 await client.send_message(channel, embed=embed)    
-   
-
-
-@client.event
-async def on_message(message):
     with open("users.json", "r") as f:
         users = json.load(f)
 
