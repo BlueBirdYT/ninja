@@ -1471,15 +1471,7 @@ async def on_message(message):
                 embed.add_field(name = 'Message:',value ='{}'.format(message.content),inline = False)
                 await client.send_message(channel, embed=embed)    
    
-@bot.event
-async def on_member_join(member):
-    with open("users.json", "r") as f:
-        users = json.load(f)
 
-        await update_data(users, member)
-
-        with open("users.json", "w") as f:
-            json.dump(users, f)
 
 @client.event
 async def on_message(message):
