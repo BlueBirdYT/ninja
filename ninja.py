@@ -1,4 +1,3 @@
-import dbl
 import discord
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
@@ -10,7 +9,6 @@ import random
 import os
 import requests
 import datetime
-import logging
 import json
 from discord import Game, Embed, Color, Status, ChannelType
 
