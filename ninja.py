@@ -32,7 +32,7 @@ async def status_task():
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
         await asyncio.sleep(4)
-        await client.change_presence(gamer=discord.Game(name='i need upvotes pls vote by typing n!Help'))
+        await client.change_presence(game=discord.Game(name='i need upvotes pls vote by typing n!Help'))
         await asyncio.sleep(4)
        
 
