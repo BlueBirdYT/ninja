@@ -163,6 +163,7 @@ async def on_member_join(member):
             embed.set_thumbnail(url='https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif')
             embed.add_field(name='__Join position__', value='{}'.format(str(member.server.member_count)), inline=True)
             embed.add_field(name='Time of joining', value=member.joined_at)
+            embed.set_thumbnail(url=member.avatar_url)
             await asyncio.sleep(0.4)
             await client.send_message(channel, embed=embed)
         
