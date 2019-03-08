@@ -30,6 +30,8 @@ async def status_task():
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers', type=3))
         await asyncio.sleep(4)
+        await client.change_presence(gamer=discord.Game(name='i need upvotes pls vote by typing n!Help'))
+        await asyncio.sleep(4)
        
 
      
@@ -1016,6 +1018,7 @@ async def help(ctx):
       embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
       embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
       embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
+      embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
       dmmessage = await client.send_message(author,embed=embed)
       reaction1 = '🇲'
       reaction2 = '🇬'
