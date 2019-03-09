@@ -1011,25 +1011,25 @@ async def help(ctx):
     await client.say('Almost sent :incoming_envelope:')
     await asyncio.sleep(1)
     else:
-      author = ctx.message.author
-      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='My prefix is n! and here are the help information!')
-      embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
-      embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/5HcHjDj',inline = False)
-      embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
-      embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
-      embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
-      embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
-      embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
-      dmmessage = await client.send_message(author,embed=embed)
-      reaction1 = '🇲'
-      reaction2 = '🇬'
-      reaction3 = '🎦'
-      await client.add_reaction(dmmessage, reaction1)
-      await client.add_reaction(dmmessage, reaction2)
-      await client.add_reaction(dmmessage, reaction3)
-      await client.say('📨 Check DMs For Information')
+        author = ctx.message.author
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='My prefix is n! and here are the help information!')
+        embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
+        embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/5HcHjDj',inline = False)
+        embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
+        embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
+        embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
+        embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
+        embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
+        dmmessage = await client.send_message(author,embed=embed)
+        reaction1 = '🇲'
+        reaction2 = '🇬'
+        reaction3 = '🎦'
+        await client.add_reaction(dmmessage, reaction1)
+        await client.add_reaction(dmmessage, reaction2)
+        await client.add_reaction(dmmessage, reaction3)
+        await client.say('📨 Check DMs For Information')
                            
     
     
