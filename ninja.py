@@ -1004,10 +1004,12 @@ async def remind(ctx, time=None, *,remind=None):
 
 @client.command(pass_context = True)
 async def help(ctx):
-    await client.say('sending')
-    await asyncio.sleep(2)
     if ctx.message.author.bot:
-      return
+        return
+    await client.say('sending :incoming_envelope:')
+    await asyncio.sleep(1)
+    await client.say('Almost sent :incoming_envelope:')
+    await asyncio.sleep(1)
     else:
       author = ctx.message.author
       r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
