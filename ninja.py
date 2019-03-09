@@ -1187,7 +1187,7 @@ async def ownerinfo(ctx):
     embed.add_field(name="Co-owner: LOLGamerYT ❄ Spearow Collector#7511", value="He helped in testing the bot")
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
-    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/b6129efbb8ddb279633aeb64f8e7126b.webp?size=1024")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/7968f36ce706617126cd299153de595f.webp?size=1024")
     await client.say(embed=embed)
 
 
