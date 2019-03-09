@@ -1,4 +1,3 @@
 discord.py
 asyncio
 requests
-git clone https://github.com/DiscordBotList/DBL-Python-Library
