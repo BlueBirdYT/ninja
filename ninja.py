@@ -1010,6 +1010,8 @@ async def help(ctx):
     await asyncio.sleep(1)
     await client.say('Almost sent :incoming_envelope:')
     await asyncio.sleep(1)
+    if ctx.message.author.bot:
+        return
     else:
         author = ctx.message.author
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
