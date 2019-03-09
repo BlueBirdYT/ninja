@@ -81,6 +81,7 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'n!avatar', value ='n!avatar or n!avatar @user',inline = False)
             embed.add_field(name = 'n!flipcoin', value ='n!flipcoin',inline = False)
             embed.add_field(name = 'n!unmute (mod or admin is required)', value ='n!unmute @user',inline = False)
+            embed.add_field(name = 'n!gifsearch', value ='n!gifsearch (name)',inline = False)
             await client.send_message(user,embed=embed)
      if reaction.emoji == '🇲':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -1490,7 +1491,29 @@ async def on_member_remove(member):
             embed.add_field(name='Your join position was', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
             await client.send_message(channel, embed=embed)
-                   
+@client.command(pass_context=True)
+async def gifsearch(ctx, *keywords):
+    if keywords:
+        keywords = "+".join(keywords)
+    else:
+        await client.say('Invalid args')
+        return
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(title='Search Results for', description=f'{keywords}', color = discord.Color((r << 16) + (g << 8) + b))
+    url = ("http://api.giphy.com/v1/gifs/search?&api_key=%7B%7D&q=%7B%7D"
+           "".format(GIPHY_API_KEY, keywords))
+    async with aiohttp.get(url) as r:
+        result = await r.json()
+        if r.status == 200:
+            if result["data"]:
+                embed.set_image(url=result["data"][0]["url"])
+                embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+                embed.timestamp = datetime.datetime.utcnow()
+                await client.say(embed=embed)
+            else:
+                await client.say("No results found.")
+        else:
+            await client.say("Error contacting the API")                   
 
         
 client.run(os.getenv('Token'))
