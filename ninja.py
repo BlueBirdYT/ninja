@@ -22,15 +22,17 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name=' n!help',type=2))
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=' n!help',type=2))
         await asyncio.sleep(5)
-        await client.change_presence(game=discord.Game(name='Music'))
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='Music'))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users',status=discord.Status.do_not_disturb,type=3))
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=str(len(set(client.get_all_members())))+' users',type=3))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers',status=discord.Status.do_not_disturb,type=3))
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='xp system added type n!ownerinfo for more informatiion'))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name='i need upvotes pls vote by typing n!Help',status=discord.Status.do_not_disturb))
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=str(len(client.servers))+' servers',type=3))
+        await asyncio.sleep(4)
+        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='i need upvotes pls vote by typing n!Help'))
         await asyncio.sleep(4)
        
 
@@ -1191,6 +1193,7 @@ async def ownerinfo(ctx):
     embed.add_field(name="Owner: BlueBird ❄ Froakie collector#0440", value="He coded the bot")
     embed.add_field(name="Co-owner: LOLGamerYT ❄ Spearow Collector#7511", value="He helped in testing the bot")
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
+    embed.set_field(name="bot update", value="added xp system talk and check n!rank for how much level you are and bot resets level every time we restart bot")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/7968f36ce706617126cd299153de595f.webp?size=1024")
     await client.say(embed=embed)
