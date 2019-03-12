@@ -1350,6 +1350,18 @@ async def on_message(message):
     if '<@487552378497662978>' in message.content:
         msg = '**my prefix is n!, Use ``n!help`` for more information!**'.format(message)
         msg2 = await client.send_message(message.channel, msg)
+    if message.content.lower().startswith('n!rank'):
+        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+        level=int(get_xp(message.author.id)/100)
+        msgs=int(get_xp(message.author.id)/2)
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='Daily Universal Rank')
+        embed.set_thumbnail(url = message.author.avatar_url)
+        embed.add_field(name = '**__XP__**'.format(message.author),value ='``{}``'.format(get_xp(message.author.id)),inline = False)
+        embed.add_field(name = '**__Level__**'.format(message.author),value ='``{}``'.format(level),inline = False)
+        embed.add_field(name = '**__Messages__**'.format(message.author),value ='``{}`` Messages'.format(msgs),inline = False)
+        embed.add_field(name='Note:',value='Our bot reset all ranks everyday so it shows only daily rank')
+        await client.send_message(message.channel, embed=embed)    
     if message.server.id == '552549858557427714':
         return
     if 'fuck' in message.content:
@@ -1548,18 +1560,7 @@ async def on_message(message):
                 embed.add_field(name = 'Channel:',value ='{}'.format(message.channel.name),inline = False)
                 embed.add_field(name = 'Message:',value ='{}'.format(message.content),inline = False)
                 await client.send_message(channel, embed=embed)
-    if message.content.lower().startswith('n!rank'):
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        level=int(get_xp(message.author.id)/100)
-        msgs=int(get_xp(message.author.id)/2)
-        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='Daily Universal Rank')
-        embed.set_thumbnail(url = message.author.avatar_url)
-        embed.add_field(name = '**__XP__**'.format(message.author),value ='``{}``'.format(get_xp(message.author.id)),inline = False)
-        embed.add_field(name = '**__Level__**'.format(message.author),value ='``{}``'.format(level),inline = False)
-        embed.add_field(name = '**__Messages__**'.format(message.author),value ='``{}`` Messages'.format(msgs),inline = False)
-        embed.add_field(name='Note:',value='Our bot reset all ranks everyday so it shows only daily rank')
-        await client.send_message(message.channel, embed=embed)
+  
      
 def user_add_xp(user_id: int, xp: int):
     if os.path.isfile("users.json"):
