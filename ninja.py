@@ -22,17 +22,17 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=' n!help',type=2))
+        await client.change_presence(status=discord.Status.idle, game=discord.Game(name=' n!help',type=2))
         await asyncio.sleep(5)
         await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='Music'))
         await asyncio.sleep(4)
-        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=str(len(set(client.get_all_members())))+' users',type=3))
+        await client.change_presence(status=discord.Status.idle, game=discord.Game(name=str(len(set(client.get_all_members())))+' users',type=3))
         await asyncio.sleep(4)
-        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='xp system added type n!ownerinfo for more informatiion'))
+        await client.change_presence(status=discord.Status.idle, game=discord.Game(name='xp system added type n!ownerinfo for more informatiion'))
         await asyncio.sleep(4)
         await client.change_presence(status=discord.Status.dnd, game=discord.Game(name=str(len(client.servers))+' servers',type=3))
         await asyncio.sleep(4)
-        await client.change_presence(status=discord.Status.dnd, game=discord.Game(name='i need upvotes pls vote by typing n!Help'))
+        await client.change_presence(status=discord.Status.idle, game=discord.Game(name='i need upvotes pls vote by typing n!Help'))
         await asyncio.sleep(4)
        
 
