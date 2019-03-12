@@ -1344,7 +1344,8 @@ async def gifsearch(ctx, *keywords):
             await client.say("Error contacting the API")                   
 
 @client.event
-async def on_message(message):    
+async def on_message(message):
+    user_add_xp(message.author.id, 2)
     await client.process_commands(message)
     if '<@487552378497662978>' in message.content:
         msg = '**my prefix is n!, Use ``n!help`` for more information!**'.format(message)
@@ -1547,10 +1548,6 @@ async def on_message(message):
                 embed.add_field(name = 'Channel:',value ='{}'.format(message.channel.name),inline = False)
                 embed.add_field(name = 'Message:',value ='{}'.format(message.content),inline = False)
                 await client.send_message(channel, embed=embed)
-@client.event
-async def on_message(message):
-    user_add_xp(message.author.id, 2)
-    await client.process_commands(message)
     if message.content.lower().startswith('n!rank'):
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         level=int(get_xp(message.author.id)/100)
