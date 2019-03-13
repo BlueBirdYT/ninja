@@ -1592,43 +1592,8 @@ def get_xp(user_id: int):
     else:
         return 0    
 
-@commands.command(pass_context=True)
-@commands.check(is_owner)
-async def serverss(self, ctx):
-    """Lists and allows to leave servers"""
-    owner = ctx.message.author
-    servers = sorted(list(self.bot.servers),
-                     key=lambda s: s.name.lower())
-    msg = ""
-    for i, server in enumerate(servers):
-        msg += "{}: {}\n".format(i, server.name)
-        msg += "\nTo leave a server just type its number."
-        
-        for page in pagify(msg, ['\n']):
-            await self.bot.say(page)
-        
-        while msg is not None:
-            msg = await self.bot.wait_for_message(author=owner, timeout=15)
-            try:
-                msg = int(msg.content)
-                await self.leave_confirmation(servers[msg], owner, ctx)
-                break
-            except (IndexError, ValueError, AttributeError):
-                pass
-async def leave_confirmation(self, server, owner, ctx):
-    await self.bot.say("Are you sure you want me "
-                       "to leave {}? (yes/no)".format(server.name))
-    
-    msg = await self.bot.wait_for_message(author=owner, timeout=15)
-    
-    if msg is None:
-        await self.bot.say("I guess not.")
-        elif msg.content.lower().strip() in ("yes", "y"):
-            await self.bot.leave_server(server)
-            if server != ctx.message.server:
-                await self.bot.say("Done.")
-                else:
-                    await self.bot.say("Alright then.")   
+   
+      
         
         
 client.run(os.getenv('Token'))
