@@ -372,11 +372,11 @@ async def role(ctx, user: discord.Member=None, *, role: discord.Role = None):
             await client.say("You haven't specified a role! ")
         if role not in user.roles:
             await client.add_roles(user, role)
-            await client.say("{} role has been added to {}.".format(role, user))
+            await client.say(":white_check_mark: changed role for {}, +{}".format(user, role))
             return
         if role in user.roles:
             await client.remove_roles(user, role)
-            await client.say("{} role has been removed from {}.".format(role, user))
+            await client.say(":white_check_mark: changed role for {}, -{}".format(user, role))
 
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
