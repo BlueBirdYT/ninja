@@ -1601,11 +1601,11 @@ async def serverss(self, ctx):
                      key=lambda s: s.name.lower())
     msg = ""
     for i, server in enumerate(servers):
-    msg += "{}: {}\n".format(i, server.name)
-    msg += "\nTo leave a server just type its number."
-    
-    for page in pagify(msg, ['\n']):
-        await self.bot.say(page)
+        msg += "{}: {}\n".format(i, server.name)
+        msg += "\nTo leave a server just type its number."
+        
+        for page in pagify(msg, ['\n']):
+            await self.bot.say(page)
         
         while msg is not None:
             msg = await self.bot.wait_for_message(author=owner, timeout=15)
