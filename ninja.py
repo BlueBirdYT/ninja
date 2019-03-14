@@ -10,6 +10,7 @@ import os
 import requests
 import datetime
 import json
+from discord.voice_client import VoiceClient
 from discord import Game, Embed, Color, Status, ChannelType
 
 
@@ -134,6 +135,8 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'n!resume', value ='n!resume',inline = False)
            embed.add_field(name = 'n!skip', value ='n!skip to skip the current song',inline = False)
            embed.add_field(name = 'n!movie', value ='n!movie (movie name)',inline = False)
+           embed.add_field(name = 'n!makemod', value ='n!makemod @user',inline = False)
+           embed.add_field(name = 'n!makeadmin', value ='n!makeadmin @user',inline = False)
            await client.send_message(user,embed=embed)
      for channel in user.server.channels:
         if channel.name == 'server-log':
@@ -1592,8 +1595,64 @@ def get_xp(user_id: int):
     else:
         return 0    
 
-   
+@client.command(pass_context = True)
+async def playy(ctx, *, url):
+    author = ctx.message.author
+    voice_channel = author.voice_channel
+    try:
+        vc = await client.join_voice_channel(voice_channel)
+        msg = await client.say("Loading...")
+        player = await vc.create_ytdl_player("ytsearch:" + url)
+        player.start()
+        await client.say("Succesfully Loaded ur song!")
+        await client.delete_message(msg)
+    except Exception as e:
+        print(e)
+        await client.say("Reconnecting")
+        for x in client.voice_clients:
+            if(x.server == ctx.message.server):
+                await x.disconnect()
+                nvc = await client.join_voice_channel(voice_channel)
+                msg = await client.say("Loading...")
+                player2 = await nvc.create_ytdl_player("ytsearch:" + url)
+                player2.start
+
+@client.command(pass_context = True)
+async def stopp(ctx):
+    for x in client.voice_clients:
+        if(x.server == ctx.message.server):
+            return await x.disconnect()   
       
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def makemod(ctx, user: discord.Member):
+    nickname = '[̲̅M̲̅]' + user.name
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    await client.add_roles(user, role)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Congratulations Message')
+    embed.add_field(name = '__Congratulations__',value ='**Congratulations for mod.Hope you will be more active here. Thanks for your help and support.**',inline = False)
+    embed.set_image(url = 'https://preview.ibb.co/i1izTz/ezgif_5_e20b665628.gif')
+    await client.send_message(user,embed=embed)
+    await client.delete_message(ctx.message)
+
+
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def makeadmin(ctx, user: discord.Member):
+    nickname = 'Ѧ'+ user.name
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Admin')
+    await client.add_roles(user, role)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+    embed.set_author(name='Congratulations Message')
+    embed.add_field(name = '__Congratulations__',value ='**Congratulations for Admin.Hope you will be more active here. Thanks for your help and support.**',inline = False)
+    embed.set_image(url = 'https://preview.ibb.co/i1izTz/ezgif_5_e20b665628.gif')
+    await client.send_message(user,embed=embed)
+    await client.delete_message(ctx.message)
         
         
 client.run(os.getenv('Token'))
