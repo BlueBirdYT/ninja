@@ -1654,5 +1654,20 @@ async def makeadmin(ctx, user: discord.Member):
     await client.send_message(user,embed=embed)
     await client.delete_message(ctx.message)
         
+@client.command(pass_context=True)
+@commands.check(is_owner)
+async def setgame(ctx, *, game:str):
+    await client.delete_message(ctx.message)
+    await client.change_presence(game=discord.Game(name=game))
+    await asyncio.sleep(10)
+        
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)     
+async def removemod(ctx, user: discord.Member):
+    nickname = user.name
+    await client.change_nickname(user, nickname=nickname)
+    role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    await client.remove_roles(user, role)
+    await client.delete_message(ctx.message)
         
 client.run(os.getenv('Token'))
