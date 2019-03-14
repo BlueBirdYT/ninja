@@ -135,8 +135,6 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'n!resume', value ='n!resume',inline = False)
            embed.add_field(name = 'n!skip', value ='n!skip to skip the current song',inline = False)
            embed.add_field(name = 'n!movie', value ='n!movie (movie name)',inline = False)
-           embed.add_field(name = 'n!makemod', value ='n!makemod @user',inline = False)
-           embed.add_field(name = 'n!makeadmin', value ='n!makeadmin @user',inline = False)
            await client.send_message(user,embed=embed)
      for channel in user.server.channels:
         if channel.name == 'server-log':
@@ -1628,7 +1626,7 @@ async def stopp(ctx):
 async def makemod(ctx, user: discord.Member):
     nickname = '[̲̅M̲̅]' + user.name
     await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    role = discord.utils.get(ctx.message.server.roles, name='Mod')
     await client.add_roles(user, role)
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
@@ -1666,7 +1664,7 @@ async def setgame(ctx, *, game:str):
 async def removemod(ctx, user: discord.Member):
     nickname = user.name
     await client.change_nickname(user, nickname=nickname)
-    role = discord.utils.get(ctx.message.server.roles, name='Moderator')
+    role = discord.utils.get(ctx.message.server.roles, name='Mod')
     await client.remove_roles(user, role)
     await client.delete_message(ctx.message)
         
