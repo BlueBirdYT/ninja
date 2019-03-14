@@ -27,7 +27,7 @@ async def status_task():
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Music',status=discord.Status.dnd))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+' users',,type=3,status=discord.Status.idle))
+        await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+'users',type=3,status=discord.Status.idle))
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name='xp system added type n!ownerinfo for more informatiion',status=discord.Status.dnd))
         await asyncio.sleep(4)
