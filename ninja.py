@@ -727,7 +727,6 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
 @commands.has_permissions(manage_messages = True)
 async def purge(ctx, number: int):
   purge = await client.purge_from(ctx.message.channel, limit = number+1)
-await client.say(str(number)+' messages deleted')
 
 
   
