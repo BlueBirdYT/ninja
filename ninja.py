@@ -1712,5 +1712,15 @@ async def removemod(ctx, user: discord.Member):
     role = discord.utils.get(ctx.message.server.roles, name='Mod')
     await client.remove_roles(user, role)
     await client.delete_message(ctx.message)
-        
+
+@client.command(pass_context=True)
+async def howgay(ctx, user: discord.Member = None):
+    score = random.randint(0, 100)
+    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+    embed = discord.Embed(title=f"Gayrate machine", description=f"{user} is **{score}%** gay :rainbow:", color = discord.Color((r << 16) + (g << 8) + b))
+    await client.say(embed=embed)    
+    
+    
+    
+    
 client.run(os.getenv('Token'))
