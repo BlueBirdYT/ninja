@@ -176,7 +176,7 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'Channel:',value ='{}'.format(reaction.message.channel.name),inline = False)
             embed.add_field(name = 'Emoji:',value ='{}'.format(reaction.emoji),inline = False)
             await client.send_message(logchannel, embed=embed)
-     if reaction.emoji == '🎦':
+     if reaction.emoji == '⏭':
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_author(name='economy Help')
         embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
@@ -1104,7 +1104,7 @@ async def help(ctx):
         reaction1 = '🇲'
         reaction2 = '🇬'
         reaction3 = '🎦'
-        reaction4 = '🎦'
+        reaction4 = '⏭'
         await client.add_reaction(dmmessage, reaction1)
         await client.add_reaction(dmmessage, reaction2)
         await client.add_reaction(dmmessage, reaction3)
