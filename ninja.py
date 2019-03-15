@@ -18,10 +18,10 @@ from discord import Game, Embed, Color, Status, ChannelType
 class DiscordBotsOrgAPI:
     """Handles interactions with the discordbots.org API"""
 
-    def __init__(self, bot):
-        self.bot = bot
+    def __init__(self, client):
+        self.client = client
         self.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NzU1MjM3ODQ5NzY2Mjk3OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTUyMTUwMjg1fQ.lDR5YXyWkm8azpXfoURVsJara38s0NcCqPGOhxehaIM'
-        self.dblpy = dbl.Client(self.bot, self.token)
+        self.dblpy = dbl.Client(self.client, self.token)
         self.bot.loop.create_task(self.update_stats())
 
     async def update_stats(self):
@@ -36,10 +36,10 @@ class DiscordBotsOrgAPI:
                 logger.exception('Failed to post server count\n{}: {}'.format(type(e).__name__, e))
             await asyncio.sleep(1800)
 
-def setup(bot):
+def setup(client):
     global logger
-    logger = logging.getLogger('bot')
-    bot.add_cog(DiscordBotsOrgAPI(bot))
+    logger = logging.getLogger('client')
+    client.add_cog(DiscordBotsOrgAPI(client))
 
 
 
