@@ -723,20 +723,12 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
         if channel.name == 'server-log':
             embed=discord.Embed(title="Changed Nickname of User!", description="**{0}** nickname was changed by **{1}**!".format(member, ctx.message.author), color=0x0521F6)
             await client.send_message(channel, embed=embed)
+@client.command(pass_context = True)
+@commands.has_permissions(manage_messages = True)
+async def purge(ctx, number: int):
+  purge = await client.purge_from(ctx.message.channel, limit = number+1)
+await client.say(str(number)+' messages deleted')
 
-@client.command(pass_context=True)
-@commands.has_permissions(manage_messages=True)  
-async def purge(ctx, number):
- 
-    if ctx.message.author.server_permissions.manage_messages:
-         mgs = [] #Empty list to put all the messages in the log
-         number = int(number) #Converting the amount of messages to delete to an integer
-    async for x in client.logs_from(ctx.message.channel, limit = number+1):
-        mgs.append(x)            
-       
-    try:
-        await client.delete_messages(mgs)          
-        await client.say(str(number)+' messages deleted')
 
   
 @client.command(pass_context=True)
