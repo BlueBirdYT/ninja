@@ -29,7 +29,7 @@ async def status_task():
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+'users',type=3,status=discord.Status("dnd"), afk=False))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name='xp system added type n!ownerinfo for more informatiion',status=discord.Status("idle"), afk=False))
+        await client.change_presence(game=discord.Game(name='economy added type n!ownerinfo for more informatiion',status=discord.Status("idle"), afk=False))
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers',type=3,status=discord.Status("dnd"), afk=False))
         await asyncio.sleep(4)
@@ -146,7 +146,20 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'Message:',value ='{}'.format(reaction.message.content),inline = False)
             embed.add_field(name = 'Channel:',value ='{}'.format(reaction.message.channel.name),inline = False)
             embed.add_field(name = 'Emoji:',value ='{}'.format(reaction.emoji),inline = False)
-            await client.send_message(logchannel, embed=embed)       
+            await client.send_message(logchannel, embed=embed)
+     if reaction.emoji == '🎦':
+        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+        embed.set_author(name='economy Help')
+        embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
+        embed.add_field(name = 'n!daily', value ='get daily rewards',inline = False)
+        embed.add_field(name = 'n!bal', value ='check your balance',inline = False)
+        embed.add_field(name = 'n!dice', value ='roll a dice',inline = False)
+        embed.add_field(name = 'n!coinflip', value ='flip a coin',inline = False)
+        embed.add_field(name = 'n!transfer', value ='transfer money to a user',inline = False)
+        embed.add_field(name = 'n!lb', value ='check leaderboard',inline = False)
+        embed.add_field(name = 'n!work', value ='work for money',inline = False)
+        await client.send_message(user,embed=embed)    
+
         
     
    
@@ -1055,15 +1068,18 @@ async def help(ctx):
         embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
         embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
         embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
+        embed.add_field(name = 'React with 🎦',value ='click it to see economy commands',inline = False)
         embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
         embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
         dmmessage = await client.send_message(author,embed=embed)
         reaction1 = '🇲'
         reaction2 = '🇬'
         reaction3 = '🎦'
+        reaction4 = '🎦'
         await client.add_reaction(dmmessage, reaction1)
         await client.add_reaction(dmmessage, reaction2)
         await client.add_reaction(dmmessage, reaction3)
+        await client.add_reaction(dmmessage, reaction4)
         await client.say('📨 Check DMs For Information')
                            
     
@@ -1223,7 +1239,7 @@ async def ownerinfo(ctx):
     embed.add_field(name="Owner: BlueBird ❄ Froakie collector#0440", value="He coded the bot")
     embed.add_field(name="Co-owner: LOLGamerYT ❄ Spearow Collector#7511", value="He helped in testing the bot")
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
-    embed.add_field(name="bot update", value="added xp system talk and check n!rank for how much level you are and bot resets level every time we restart bot")
+    embed.add_field(name="bot update", value="added economy check n!help for more information")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/7968f36ce706617126cd299153de595f.webp?size=1024")
     await client.say(embed=embed)
