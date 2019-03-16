@@ -1744,6 +1744,17 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
             embed = discord.Embed(title=f"{shipuser1} ❤ {shipuser2} Love each others", description=f"Love\n`{counter_}` Score:**{score}% **\nLoveName:**{finalName}**", color = discord.Color((r << 16) + (g << 8) + b))
             embed.set_image(url=res['message'])
             await client.say(embed=embed)   		   	   	    
-    
+
+@client.command(pass_context=True)
+@commands.check(is_owner)
+async def setgame(ctx,types:str,*,game:str):
+    rep = {"listening": "2", "watching": "3", "streaming": "1", "playing": "0"} # define desired replacements here
+    rep = dict((re.escape(k), v) for k, v in rep.iteritems())
+    pattern = re.compile("|".join(rep.keys()))
+    text = pattern.sub(lambda m: rep[re.escape(m.group(0))], text)
+    await client.delete_message(ctx.message)
+    await client.change_presence(game=discord.Game(name=game, type=int(text)))            
+            
+            
     
 client.run(os.getenv('Token'))
