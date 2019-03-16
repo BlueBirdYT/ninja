@@ -1720,7 +1720,31 @@ async def howgay(ctx, user: discord.Member = None):
     embed = discord.Embed(title=f"Gay checking cellphone", description=f"{user} is **{score}%** gay :rainbow:", color = discord.Color((r << 16) + (g << 8) + b))
     await client.say(embed=embed)    
     
-    
+@bot.command(pass_context=True)
+async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None):
+    shipuser1 = user.name
+    shipuser2 = user2.name
+    useravatar1 = user.avatar_url
+    useravatar2s = user2.avatar_url
+    self_length = len(user.name)
+    first_length = round(self_length / 2)
+    first_half = user.name[0:first_length]
+    usr_length = len(user2.name)
+    second_length = round(usr_length / 2)
+    second_half = user2.name[second_length:]
+    finalName = first_half + second_half
+    score = random.randint(0, 100)
+    filled_progbar = round(score / 100 * 10)
+    counter_ = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
+    url = f"https://nekobot.xyz/api/imagegen?type=ship&user1={useravatar1}&user2={useravatar2s}"
+    async with aiohttp.ClientSession() as cs:
+        async with cs.get(url) as r:
+            res = await r.json()
+            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+            embed = discord.Embed(title=f"{shipuser1} ❤ {shipuser2} Love each others", description=f"Love\n`{counter_}` Score:**{score}% **\nLoveName:**{finalName}**", color = discord.Color((r << 16) + (g << 8) + b))
+            embed.set_footer(text ='used by'user.id)
+            embed.set_image(url=res['message'])
+            await bot.say(embed=embed)   		   	   	    
     
     
 client.run(os.getenv('Token'))
