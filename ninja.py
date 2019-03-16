@@ -1742,7 +1742,6 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
             res = await r.json()
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
             embed = discord.Embed(title=f"{shipuser1} ❤ {shipuser2} Love each others", description=f"Love\n`{counter_}` Score:**{score}% **\nLoveName:**{finalName}**", color = discord.Color((r << 16) + (g << 8) + b))
-            embed.set_footer(text ='used by'user.id)
             embed.set_image(url=res['message'])
             await bot.say(embed=embed)   		   	   	    
     
