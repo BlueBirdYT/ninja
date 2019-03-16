@@ -52,7 +52,7 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name=' n!help',type=2,status=discord.Status("dnd"), afk=False))
+        await client.change_presence(game=discord.Game(name=' n!help',type=2,url='https://twitch.tv/myname',status=discord.Status("dnd"), afk=False))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Music',status=discord.Status("idle"), afk=False))
         await asyncio.sleep(4)
