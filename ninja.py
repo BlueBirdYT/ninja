@@ -1268,7 +1268,7 @@ async def ownerinfo(ctx):
     embed = discord.Embed(title="Information about owner", description="Main Creator: Uthsho", color=0x00ff00)
     embed.set_author(name=" Bot Owner ""Uthsho#0440")
     embed.add_field(name="Owner: Uthsho#0440", value="He coded the bot")
-    embed.add_field(name="Co-owner: LOLGamerYT ❄ Spearow Collector#7511", value="He helped in testing the bot")
+    embed.add_field(name="Co-owner: Shobhit Chauhan#7511", value="He helped in testing the bot")
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
     embed.add_field(name="bot update", value="added economy check n!help for more information")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
