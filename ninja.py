@@ -411,10 +411,8 @@ async def rolecolor(ctx, role:discord.Role=None, value:str=None):
 @client.command(pass_context = True)
 @commands.has_permissions(manage_roles=True)
 async def role(ctx, user: discord.Member=None, *, role: discord.Role = None):
-        if user is None:
-            await client.say("You haven't specified a member! ")
-        if role is None:
-            await client.say("You haven't specified a role! ")
+    if user is None or role is None:
+        await client.say('Args missing!, Correct ways is n!role @user (rolename)')
         if role not in user.roles:
             await client.add_roles(user, role)
             await client.say(":white_check_mark: changed role for {}, +{}".format(user, role))
