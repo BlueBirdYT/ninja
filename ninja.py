@@ -22,7 +22,7 @@ class DiscordBotsOrgAPI:
         self.client = client
         self.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4NzU1MjM3ODQ5NzY2Mjk3OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTUyMTUwMjg1fQ.lDR5YXyWkm8azpXfoURVsJara38s0NcCqPGOhxehaIM'
         self.dblpy = dbl.Client(self.client, self.token)
-        self.bot.loop.create_task(self.update_stats())
+        self.client.loop.create_task(self.update_stats())
 
     async def update_stats(self):
         """This function runs every 30 minutes to automatically update your server count"""
@@ -52,7 +52,7 @@ GIPHY_API_KEY = "dc6zaTOxFJmzC"
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name=' n!help',type=2,url='https://twitch.tv/myname',status=discord.Status("dnd"), afk=False))
+        await bot.change_presence(game=discord.Game(name='n!help', url='https://twitch.tv/myname', type=1))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Music',status=discord.Status("idle"), afk=False))
         await asyncio.sleep(4)
