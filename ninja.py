@@ -739,6 +739,7 @@ async def ban(ctx,user:discord.Member=None):
       await client.say('**He is mod/admin and i am unable to ban him/her**')
       return
     else:
+      await client.send_message(user, 'You have been banned from {}'.format(ctx.message.server.name))
       await client.ban(user)
       await client.say(user.name+' was banned. Good bye '+user.name+'!')
       for channel in member.server.channels:
