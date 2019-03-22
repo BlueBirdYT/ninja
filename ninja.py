@@ -1709,7 +1709,7 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
 
 @client.event
 async def on_server_join(server):
-		if channel.name == '🐱‍👤server-joins':
+		if channel.name == 'server-joins-ninja':
 			logchannel = channel
 			r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 			embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
@@ -1721,7 +1721,7 @@ async def on_server_join(server):
 			
 @client.event
 async def on_server_remove(server):
-		if channel.name == '🐱‍👤server-joins':
+		if channel.name == 'server-joins-ninja':
 			logchannel = channel
 			r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 			embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
