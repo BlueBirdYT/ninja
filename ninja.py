@@ -113,7 +113,6 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'n!avatar', value ='n!avatar or n!avatar @user',inline = False)
             embed.add_field(name = 'n!flipcoin', value ='n!flipcoin',inline = False)
             embed.add_field(name = 'n!unmute (mod or admin is required)', value ='n!unmute @user',inline = False)
-            embed.add_field(name = 'n!gifsearch', value ='n!gifsearch (name)',inline = False)
             await client.send_message(user,embed=embed)
      if reaction.emoji == '🇲':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -168,7 +167,7 @@ async def on_reaction_add(reaction, user):
      if reaction.emoji == '⏭':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
         embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='economy Help')
+        embed.set_author(name='economy and level help')
         embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
         embed.add_field(name = 'n!daily', value ='get daily rewards',inline = False)
         embed.add_field(name = 'n!bal', value ='check your balance',inline = False)
@@ -177,6 +176,8 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = 'n!transfer', value ='transfer money to a user',inline = False)
         embed.add_field(name = 'n!lb', value ='check leaderboard',inline = False)
         embed.add_field(name = 'n!work', value ='work for money',inline = False)
+        embed.add_field(name = 'n!profile', value ='check your level',inline = False)
+        embed.add_field(name = 'n!leaderboard', value ='check the leaderboard',inline = False)
         await client.send_message(user,embed=embed)    
      
      for channel in user.server.channels:
@@ -1392,23 +1393,10 @@ async def gifsearch(ctx, *keywords):
 
 @client.event
 async def on_message(message):
-    user_add_xp(message.author.id, 2)
     await client.process_commands(message)
     if '<@487552378497662978>' in message.content:
         msg = '**my prefix is n!, Use ``n!help`` for more information!**'.format(message)
-        msg2 = await client.send_message(message.channel, msg)
-    if message.content.lower().startswith('n!rank'):
-        r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-        level=int(get_xp(message.author.id)/100)
-        msgs=int(get_xp(message.author.id)/2)
-        embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-        embed.set_author(name='Daily Universal Rank')
-        embed.set_thumbnail(url = message.author.avatar_url)
-        embed.add_field(name = '**__XP__**'.format(message.author),value ='``{}``'.format(get_xp(message.author.id)),inline = False)
-        embed.add_field(name = '**__Level__**'.format(message.author),value ='``{}``'.format(level),inline = False)
-        embed.add_field(name = '**__Messages__**'.format(message.author),value ='``{}`` Messages'.format(msgs),inline = False)
-        embed.add_field(name='Note:',value='Our bot reset all ranks everyday so it shows only daily rank')
-        await client.send_message(message.channel, embed=embed)    
+        msg2 = await client.send_message(message.channel, msg) 
     if message.server.id == '552549858557427714':
         return
     if 'fuck' in message.content:
@@ -1609,35 +1597,7 @@ async def on_message(message):
                 await client.send_message(channel, embed=embed)
   
      
-def user_add_xp(user_id: int, xp: int):
-    if os.path.isfile("users.json"):
-        try:
-            with open('users.json', 'r') as fp:
-                users = json.load(fp)
-            users[user_id]['xp'] += xp
-            with open('users.json', 'w') as fp:
-                json.dump(users, fp, sort_keys=True, indent=4)
-        except KeyError:
-            with open('users.json', 'r') as fp:
-                users = json.load(fp)
-            users[user_id] = {}
-            users[user_id]['xp'] = xp
-            with open('users.json', 'w') as fp:
-                json.dump(users, fp, sort_keys=True, indent=4)
-    else:
-        users = {user_id: {}}
-        users[user_id]['xp'] = xp
-        with open('users.json', 'w') as fp:
-            json.dump(users, fp, sort_keys=True, indent=4)
 
-
-def get_xp(user_id: int):
-    if os.path.isfile('users.json'):
-        with open('users.json', 'r') as fp:
-            users = json.load(fp)
-        return users[user_id]['xp']
-    else:
-        return 0    
 
 @client.command(pass_context = True)
 async def playy(ctx, *, url):
