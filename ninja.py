@@ -1099,7 +1099,7 @@ async def help(ctx):
         embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
         embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
         embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
-        embed.add_field(name = 'React with 🎦',value ='click it to see economy and level commands',inline = False)
+        embed.add_field(name = 'React with ⏭',value ='click it to see economy and level commands',inline = False)
         embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
         embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
         dmmessage = await client.send_message(author,embed=embed)
