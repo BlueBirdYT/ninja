@@ -412,8 +412,8 @@ async def rolecolor(ctx, role:discord.Role=None, value:str=None):
 @client.command(pass_context = True)
 @commands.has_permissions(manage_roles=True)     
 async def role(ctx, user: discord.Member, *, role: discord.Role = None):
-    if role is None:
-        return await client.say("You haven't specified a role! ")
+    if user is None or role is None:
+        return await client.say("Invalid args, proper way is n! @user (rolename)")
     if role not in user.roles:
         await client.add_roles(user, role)
         return await client.say(":white_check_mark: changed role for {}, +{}".format(user, role))
@@ -723,11 +723,17 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
         if channel.name == 'server-log':
             embed=discord.Embed(title="Changed Nickname of User!", description="**{0}** nickname was changed by **{1}**!".format(member, ctx.message.author), color=0x0521F6)
             await client.send_message(channel, embed=embed)
-@client.command(pass_context = True)
-@commands.has_permissions(manage_messages = True)
-async def purge(ctx, number: int):
-  purge = await client.purge_from(ctx.message.channel, limit = number+1)
 
+@client.command(pass_context=True)
+async def purge(ctx, number):
+    msg = [] 
+    number = int(number) 
+    async for x in bot.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+    await client.delete_messages(msg)
+    await client.say(':white_check_mark: {} MESSAGES WERE DELETED!'.format(number))
+            
+            
 
   
 @client.command(pass_context=True)
