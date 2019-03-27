@@ -416,11 +416,11 @@ async def role(ctx, user: discord.Member=None, *, role: discord.Role = None):
         await client.say('Args missing!, Correct ways is n!role @user (rolename)')
         if role not in user.roles:
             await client.add_roles(user, role)
-            await client.say(":white_check_mark: changed role for {}, +{}".format(user, role))
-            return
+            return await client.say(":white_check_mark: changed role for {}, +{}".format(user, role))
+            
         if role in user.roles:
             await client.remove_roles(user, role)
-            await client.say(":white_check_mark: changed role for {}, -{}".format(user, role))
+            return await client.say(":white_check_mark: changed role for {}, -{}".format(user, role))
 
 @client.command(pass_context = True)
 @commands.has_permissions(kick_members=True)
