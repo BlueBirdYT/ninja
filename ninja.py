@@ -1096,7 +1096,7 @@ async def help(ctx):
         embed.set_author(name='My prefix is n! and here are the help information!')
         embed.set_image(url = 'https://image.ibb.co/caM2BK/help.gif')
         embed.add_field(name = 'Checkout our bots website https://uthsho1244.wixsite.com/ninjabot',value ='its on beta still so all commands information are not shown!',inline = False)
-        embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/5HcHjDj',inline = False)
+        embed.add_field(name = 'Having doubts? Join our server and clear your doubts. Server link:',value ='https://discord.gg/gaKcPHz',inline = False)
         embed.add_field(name = 'React with 🇲 ',value ='click it to see the commands',inline = False)
         embed.add_field(name = 'React with 🇬 ',value ='click it to see the rest of the commands',inline = False)
         embed.add_field(name = 'React with 🎦 ',value ='click it to see the rest of the commands',inline = False)
@@ -1280,7 +1280,7 @@ async def ownerinfo(ctx):
 
 @client.command(pass_context=True)
 async def server(ctx):
-    await client.say('support server: https://discord.gg/GhYX7zU')
+    await client.say('support server: https://discord.gg/gaKcPHz')
 
    
 @client.command(pass_context = True)
