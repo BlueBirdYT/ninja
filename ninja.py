@@ -726,7 +726,7 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
 
 @client.command(pass_context = True)
 @commands.has_permissions(manage_messages=True)  
-async def clear(ctx, number):
+async def purge(ctx, number):
  
     if ctx.message.author.server_permissions.manage_messages:
          mgs = [] #Empty list to put all the messages in the log
