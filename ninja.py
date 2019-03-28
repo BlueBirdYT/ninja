@@ -724,16 +724,29 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
             embed=discord.Embed(title="Changed Nickname of User!", description="**{0}** nickname was changed by **{1}**!".format(member, ctx.message.author), color=0x0521F6)
             await client.send_message(channel, embed=embed)
 
-@client.command(pass_context=True)
-async def purge(ctx, number):
-    msg = [] 
-    number = int(number) 
-    async for x in client.logs_from(ctx.message.channel):
-        msg.append(x)
-    await client.delete_messages(msg)
-    await client.say(':white_check_mark: {} MESSAGES WERE DELETED!'.format(number))
-            
-            
+@client.command(pass_context = True)
+@commands.has_permissions(manage_messages=True)  
+async def clear(ctx, number):
+ 
+    if ctx.message.author.server_permissions.manage_messages:
+         mgs = [] #Empty list to put all the messages in the log
+         number = int(number) #Converting the amount of messages to delete to an integer
+    async for x in client.logs_from(ctx.message.channel, limit = number+1):
+        mgs.append(x)            
+       
+    try:
+        await client.delete_messages(mgs)          
+        await client.say(str(number)+' messages deleted')
+     
+    except discord.Forbidden:
+        await client.say(embed=Forbidden)
+        return
+    except discord.HTTPException:
+        await client.say('clear failed.')
+        return         
+   
+ 
+    await client.delete_messages(mgs)      
 
   
 @client.command(pass_context=True)
