@@ -729,7 +729,7 @@ async def purge(ctx, number):
     msg = [] 
     number = int(number) 
     async for x in client.logs_from(ctx.message.channel, limit = number):
-        mgs.append(x)
+        msg.append(x)
     await client.delete_messages(msg)
     await client.say(':white_check_mark: {} MESSAGES WERE DELETED!'.format(number))
             
