@@ -684,7 +684,6 @@ async def access(ctx, member: discord.Member=None):
 
 
 
-
 @client.command(pass_context = True)
 async def addrole(ctx,*, role:str=None):
     user = ctx.message.author
@@ -698,6 +697,9 @@ async def addrole(ctx,*, role:str=None):
     else:
         await client.say("{} role is already exists".format(role))
 
+
+            
+            
 @client.command(pass_context = True)
 async def delrole(ctx,*, role: discord.Role = None):
     user = ctx.message.author
