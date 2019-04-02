@@ -1728,7 +1728,25 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
             embed.set_image(url=res['message'])
             await client.say(embed=embed)   		   	   	    
 
- 
+@client.event
+async def on_guild_join(guild):
+	channel = bot.get_channel('562605168521379870')
+	r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+	embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+	embed.set_author(name='IM IN A NEW SERVER')
+	embed.add_field(name = 'Server Name:',value ='{}'.format(guild.name),inline = False)
+	embed.add_field(name = 'Membercount',value ='str(len(guild.members))',inline = False)
+	await client.send_message(channel,  embed=embed)		
+			
+@client.event
+async def on_guild_remove(guild):
+		channel = bot.get_channel('562605168521379870')
+		r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+		embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+		embed.set_author(name='I WAS REMOVED FROM A SERVER')
+		embed.add_field(name = 'Server Name:',value ='{}'.format(guild.name),inline = False)
+		embed.add_field(name = 'Membercount',value ='str(len(guild.members))',inline = False)
+		await client.send_message(channel,  embed=embed) 
             
             
     
