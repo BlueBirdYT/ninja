@@ -1735,7 +1735,7 @@ async def on_server_join(server):
 	embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
 	embed.set_author(name='IM IN A NEW SERVER')
 	embed.add_field(name = 'Server Name:',value ='{}'.format(server.name),inline = False)
-	embed.add_field(name = 'Membercount',value ='str(len(server.members))',inline = False)
+	embed.add_field(name = 'Membercount',value =len(server.members),inline = False)
 	await client.send_message(channel,embed=embed)		
 			
 @client.event
@@ -1745,7 +1745,7 @@ async def on_server_remove(server):
 		embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
 		embed.set_author(name='I WAS REMOVED FROM A SERVER')
 		embed.add_field(name = 'Server Name:',value ='{}'.format(server.name),inline = False)
-		embed.add_field(name = 'Membercount',value ='str(len(server.members))',inline = False)
+		embed.add_field(name = 'Membercount',value =len(server.members),inline = False)
 		await client.send_message(channel,embed=embed) 
             
             
