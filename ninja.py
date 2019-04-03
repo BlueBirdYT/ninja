@@ -58,11 +58,9 @@ async def status_task():
         await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(set(client.get_all_members())))+'users',type=3,status=discord.Status("dnd"), afk=False))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name='updated level system type n!ownerinfo for more informatiion',status=discord.Status("idle"), afk=False))
-        await asyncio.sleep(4)
         await client.change_presence(game=discord.Game(name=str(len(client.servers))+' servers',type=3,status=discord.Status("dnd"), afk=False))
         await asyncio.sleep(4)
-        await client.change_presence(game=discord.Game(name='i need upvotes pls vote by typing n!Help',status=discord.Status("idle"), afk=False))
+        await client.change_presence(game=discord.Game(name='Join support server for advertising your hardworked programmed bot! by using n!server!',status=discord.Status("idle"), afk=False))
         await asyncio.sleep(4)
        
 
