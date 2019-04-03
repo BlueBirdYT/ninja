@@ -1730,7 +1730,7 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
 
 @client.event
 async def on_server_join(server):
-	channel = client.get_channel('562921257524264960')
+	channel = client.get_channel('562605168521379870')
 	r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 	embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
 	embed.set_author(name='IM IN A NEW SERVER')
@@ -1740,7 +1740,7 @@ async def on_server_join(server):
 			
 @client.event
 async def on_server_remove(server):
-		channel = client.get_channel('562921257524264960')
+		channel = client.get_channel('562605168521379870')
 		r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 		embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
 		embed.set_author(name='I WAS REMOVED FROM A SERVER')
