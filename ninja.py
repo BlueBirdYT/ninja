@@ -177,7 +177,7 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = 'n!profile', value ='check your level',inline = False)
         embed.add_field(name = 'n!leaderboard', value ='check the leaderboard',inline = False)
 	await client.send_message(user,embed=embed)
-     
+
 
      for channel in user.server.channels:
 		if channel.name == 'server-log':
@@ -224,7 +224,6 @@ async def on_member_join(member):
             embed.add_field(name='__Join position__', value='{}'.format(str(member.server.member_count)), inline=True)
             embed.add_field(name='Time of joining', value=member.joined_at)
             embed.set_thumbnail(url=member.avatar_url)
-            embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await asyncio.sleep(0.4)
             await client.send_message(channel, embed=embed)
         
@@ -373,7 +372,6 @@ async def userinfo(ctx, user: discord.Member=None):
       embed.add_field(name="Joined", value=user.joined_at.strftime("%d %b %Y %H:%M"))
       embed.add_field(name="Created", value=user.created_at.strftime("%d %b %Y %H:%M"))
       embed.set_thumbnail(url=user.avatar_url)
-      embed.set_footer(text="Copyright @ 『🌟』bot development!")
       await client.say(embed=embed)
 
 @client.command(pass_context = True)
@@ -391,7 +389,6 @@ async def roleinfo(ctx,*, role:discord.Role=None):
         embed.add_field(name="ID", value=role.id, inline=True)
         embed.add_field(name="Color", value=role.color)
         embed.add_field(name="Created", value=role.created_at.strftime("%d %b %Y %H:%M"))
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.say(embed=embed)
 @client.command(pass_context = True)
 async def rolecolor(ctx, role:discord.Role=None, value:str=None):
@@ -520,7 +517,6 @@ async def tweet(ctx, usernamename:str, *, txt:str):
             embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
             embed.set_image(url=res['message'])
             embed.title = "{} twitted: {}".format(usernamename, txt)
-	    embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.say(embed=embed)
 
 @client.command(pass_context = True)
@@ -536,7 +532,6 @@ async def announce(ctx, channel: discord.Channel=None, *, msg: str=None):
         else:
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
             embed=discord.Embed(title="Announcement", description="{}".format(msg), color = discord.Color((r << 16) + (g << 8) + b))
-            embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(channel, embed=embed)
             await client.delete_message(ctx.message)
 @client.command(pass_context = True)
@@ -605,7 +600,6 @@ async def mute(ctx, member: discord.Member=None, mutetime=None):
                 await client.remove_roles(member, role)
                 await client.say("Unmuted **{}**".format(member.name))
                 embed=discord.Embed(title="User unmuted!", description="**{0}** was unmuted!".format(member, ctx.message.author), color=0xFD1600)
-		embed.set_footer(text="Copyright @ 『🌟』bot development!")
                 await client.send_message(channel, embed=embed)
             else:
                 return
