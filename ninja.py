@@ -997,7 +997,6 @@ async def invite():
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
     embed.add_field(name = 'Link to invite me', value='https://discordapp.com/api/oauth2/authorize?client_id=487552378497662978&permissions=8&scope=bot')
     embed.add_field(name = 'bot info', value='NinjaBot is a simple bot easy and fun to use we will do updates and keep improving the bot')
-    embed.set_footer(text ="Copyright @『🌟』bot development!")
     await client.say(embed=embed)
     await client.delete_message(ctx.message)
 
@@ -1282,7 +1281,6 @@ async def ownerinfo(ctx):
     embed.add_field(name="bot update", value="updated level system check n!help for more information")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/7968f36ce706617126cd299153de595f.webp?size=1024")
-    embed.set_footer(text ="Copyright @『🌟』bot development!")
     await client.say(embed=embed)
 
 
@@ -1290,7 +1288,6 @@ async def ownerinfo(ctx):
 async def server(ctx):
 	r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 	embed = discord.Embed(title="support server invite", description="https://discord.gg/gaKcPHz", color = discord.Color((r << 16) + (g << 8) + b))
-	embed.set_footer(text ="Copyright @『🌟』bot development!")
 	await client.say(embed=embed)
    
 @client.command(pass_context = True)
