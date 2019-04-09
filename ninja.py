@@ -162,8 +162,7 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'n!pause', value ='n!pause',inline = False)
            embed.add_field(name = 'n!resume', value ='n!resume',inline = False)
            embed.add_field(name = 'n!skip', value ='n!skip to skip the current song',inline = False)
-           embed.add_field(name = 'n!movie', value ='n!movie (movie name)',inline = False)
-	   embed.set_footer(text="Copyright @ 『🌟』bot development!")
+           embed.add_field(name = 'n!movie', value ='n!movie (movie name)',inline = False)	
            await client.send_message(user,embed=embed)
      if reaction.emoji == '⏭':
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
