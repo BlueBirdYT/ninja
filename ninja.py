@@ -752,8 +752,8 @@ async def ban(ctx,user:discord.Member=None):
       for channel in member.server.channels:
         if channel.name == 'server-log':
             embed=discord.Embed(title="User banned!", description="**{0}** banned by **{1}**!".format(member, ctx.message.author), color=0x38761D)
-	    await client.send_message(channel,embed=embed)
-
+            await client.send_message(channel, embed=embed)
+		
 @client.command(pass_context=True)
 @commands.has_permissions(ban_members=True)
 async def unban(ctx, identification:str):
