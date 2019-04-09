@@ -179,9 +179,8 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = 'n!profile', value ='check your level',inline = False)
         embed.add_field(name = 'n!leaderboard', value ='check the leaderboard',inline = False)
 	await client.send_message(user,embed=embed)    
-     
      for channel in user.server.channels:
-        if channel.name == 'server-log':
+		if channel.name == 'server-log':
             logchannel = channel
             r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
             embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
