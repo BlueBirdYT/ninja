@@ -178,7 +178,7 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = 'n!work', value ='work for money',inline = False)
         embed.add_field(name = 'n!profile', value ='check your level',inline = False)
         embed.add_field(name = 'n!leaderboard', value ='check the leaderboard',inline = False)
-	await client.send_message(user,embed=embed)    
+	await client.send_message(user,embed=embed)
      for channel in user.server.channels:
 		if channel.name == 'server-log':
             logchannel = channel
