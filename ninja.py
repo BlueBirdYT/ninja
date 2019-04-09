@@ -31,7 +31,7 @@ class DiscordBotsOrgAPI:
             logger.info('attempting to post server count')
             try:
                 await self.dblpy.post_server_count()
-                logger.info('posted server count ({})'.format(len(self.client.guilds)))
+                logger.info('posted server count ({})'.format(len(self.client.server)))
             except Exception as e:
                 logger.exception('Failed to post server count\n{}: {}'.format(type(e).__name__, e))
             await asyncio.sleep(1800)
@@ -177,7 +177,6 @@ async def on_reaction_add(reaction, user):
         embed.add_field(name = 'n!profile', value ='check your level',inline = False)
         embed.add_field(name = 'n!leaderboard', value ='check the leaderboard',inline = False)
 	await client.send_message(user,embed=embed)
-
 
      for channel in user.server.channels:
 		if channel.name == 'server-log':
