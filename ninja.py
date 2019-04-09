@@ -1288,7 +1288,7 @@ async def ownerinfo(ctx):
 async def server(ctx):
 	r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 	embed = discord.Embed(title="support server invite", description="https://discord.gg/gaKcPHz", color = discord.Color((r << 16) + (g << 8) + b))
-	await client.send_message(embed=embed)
+	await client.say(embed=embed)
    
 @client.command(pass_context = True)
 @commands.check(is_owner)
