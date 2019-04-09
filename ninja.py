@@ -189,7 +189,6 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'Message:',value ='{}'.format(reaction.message.content),inline = False)
             embed.add_field(name = 'Channel:',value ='{}'.format(reaction.message.channel.name),inline = False)
             embed.add_field(name = 'Emoji:',value ='{}'.format(reaction.emoji),inline = False)
-            embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(logchannel, embed=embed)
 
     
