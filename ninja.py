@@ -624,7 +624,6 @@ async def avatar(ctx, user: discord.Member=None):
         embed.add_field(name='User: {}'.format(ctx.message.author.name), value='Avatar:', inline=True)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png')
         embed.set_image(url = ctx.message.author.avatar_url)
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.say(embed=embed)
     else:
         r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -632,7 +631,6 @@ async def avatar(ctx, user: discord.Member=None):
         embed.add_field(name='User: {}'.format(user.name), value='Avatar:', inline=True)
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png')
         embed.set_image(url = user.avatar_url)
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.say(embed=embed)
 
 @client.command(pass_context = True)
@@ -661,7 +659,6 @@ async def unmute(ctx, member: discord.Member=None):
         for channel in member.server.channels:
           if channel.name == 'server-log':
               embed=discord.Embed(title="User unmuted!", description="**{0}** was unmuted by **{1}**!".format(member, ctx.message.author), color=0xFD1600)
-	      embed.set_footer(text="Copyright @ 『🌟』bot development!")
               await client.send_message(channel, embed=embed)
 
 @client.command(pass_context = True)
@@ -727,7 +724,6 @@ async def setnick(ctx, user: discord.Member=None, *, nickname=None):
       for channel in user.server.channels:
         if channel.name == 'server-log':
             embed=discord.Embed(title="Changed Nickname of User!", description="**{0}** nickname was changed by **{1}**!".format(member, ctx.message.author), color=0x0521F6)
-	    embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(channel, embed=embed)
 
 @client.command(pass_context = True)
@@ -770,7 +766,6 @@ async def ban(ctx,user:discord.Member=None):
       for channel in member.server.channels:
         if channel.name == 'server-log':
             embed=discord.Embed(title="User banned!", description="**{0}** banned by **{1}**!".format(member, ctx.message.author), color=0x38761D)
-	    embed.set_footer(text="Copyright @ 『🌟』bot development!")
 	    await client.send_message(channel, embed=embed)
 
 @client.command(pass_context=True)
@@ -825,7 +820,6 @@ async def serverinfo(ctx):
     embed.add_field(name="AFK Timeout", value=server.afk_timeout)
     embed.add_field(name="Verification Level", value=server.verification_level)
     embed.add_field(name="Roles {}".format(role_length), value = roles)
-    embed.set_footer(text="Copyright @ 『🌟』bot development!")
     await client.send_message(ctx.message.channel, embed=embed)
 
 
@@ -970,7 +964,6 @@ async def kick(ctx,user:discord.Member):
       for channel in user.server.channels:
         if channel.name == 'server-log':
             embed=discord.Embed(title="User kicked!", description="**{0}** is kicked by **{1}**!".format(user, ctx.message.author), color=0xFDE112)
-	    embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(channel, embed=embed)
 
 @client.command(pass_context=True)
@@ -982,7 +975,6 @@ async def kiss(ctx, user: discord.Member):
     else:
         embed = discord.Embed(title=f"{user.name} You just got a kiss from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.say(embed=embed)
 
 @client.command(pass_context=True)
@@ -994,7 +986,6 @@ async def hug(ctx, user: discord.Member):
         randomurl = ["http://gifimage.net/wp-content/uploads/2017/09/anime-hug-gif-5.gif", "https://media1.tenor.com/images/595f89fa0ea06a5e3d7ddd00e920a5bb/tenor.gif?itemid=7919037", "https://media.giphy.com/media/NvkwNVuHdLRSw/giphy.gif"]
         embed = discord.Embed(title=f"{user.name} You just got a hug from {ctx.message.author.name}", color = discord.Color((r << 16) + (g << 8) + b))
         embed.set_image(url=random.choice(randomurl))
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.say(embed=embed)
 
 @client.command(pass_context=True)
@@ -1020,7 +1011,6 @@ async def invite():
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
     embed.add_field(name = 'Link to invite me', value='https://discordapp.com/api/oauth2/authorize?client_id=487552378497662978&permissions=8&scope=bot')
     embed.add_field(name = 'bot info', value='NinjaBot is a simple bot easy and fun to use we will do updates and keep improving the bot')
-    embed.set_footer(text="Copyright @ 『🌟』bot development!")
     await client.say(embed=embed)
     await client.delete_message(ctx.message)
 
@@ -1053,7 +1043,6 @@ async def on_message_edit(before, after):
             embed.add_field(name = 'Before:',value ='{}'.format(before.content),inline = False)
             embed.add_field(name = 'After:',value ='{}'.format(after.content),inline = False)
             embed.add_field(name = 'Channel:',value ='{}'.format(before.channel.name),inline = False)
-	    embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(channel, embed=embed)
  
 @client.event
@@ -1073,7 +1062,6 @@ async def on_message_delete(message):
           embed.add_field(name = 'User: **{0}**'.format(user.name),value ='UserID: **{}**'.format(user.id),inline = False)
           embed.add_field(name = 'Message:',value ='{}'.format(message.content),inline = False)
           embed.add_field(name = 'Channel:',value ='{}'.format(message.channel.name),inline = False)
-	  embed.set_footer(text="Copyright @ 『🌟』bot development!")
           await client.send_message(logchannel,  embed=embed)
 
           
@@ -1090,7 +1078,6 @@ async def on_reaction_remove(reaction, user):
         embed.add_field(name = 'Message:',value ='{}'.format(reaction.message.content),inline = False)
         embed.add_field(name = 'Channel:',value ='{}'.format(reaction.message.channel.name),inline = False)
         embed.add_field(name = 'Emoji:',value ='{}'.format(reaction.emoji),inline = False)
-	embed.set_footer(text="Copyright @ 『🌟』bot development!")
         await client.send_message(logchannel,  embed=embed)
  
 
@@ -1136,7 +1123,6 @@ async def help(ctx):
         embed.add_field(name = 'React with ⏭',value ='click it to see economy and level commands',inline = False)
         embed.add_field(name = 'Thanks to Darklegends',value ='thanks to darklegends he showed the devs how to make reaction help :)',inline = False)
         embed.add_field(name = 'pls upvote it will be helpful :)',value ='https://discordbots.org/bot/487552378497662978/vote',inline = False)  
-	embed.set_footer(text="Copyright @ 『🌟』bot development!") 
         dmmessage = await client.send_message(author,embed=embed)
         reaction1 = '🇲'
         reaction2 = '🇬'
@@ -1309,7 +1295,6 @@ async def ownerinfo(ctx):
     embed.add_field(name="bot update", value="updated level system check n!help for more information")
     embed.add_field(name="bot info", value="NinjaBot is a bot fun and simple to use we want people to have fun and we will keep improving it as much as we can")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/455322915471097857/7968f36ce706617126cd299153de595f.webp?size=1024")
-    embed.set_footer(text="Copyright @ 『🌟』bot development!")
     await client.say(embed=embed)
 
 
