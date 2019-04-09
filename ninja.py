@@ -111,7 +111,6 @@ async def on_reaction_add(reaction, user):
             embed.add_field(name = 'n!avatar', value ='n!avatar or n!avatar @user',inline = False)
             embed.add_field(name = 'n!flipcoin', value ='n!flipcoin',inline = False)
             embed.add_field(name = 'n!unmute (mod or admin is required)', value ='n!unmute @user',inline = False)
-            embed.set_footer(text="Copyright @ 『🌟』bot development!")
             await client.send_message(user,embed=embed)
      if reaction.emoji == '🇲':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
@@ -140,7 +139,6 @@ async def on_reaction_add(reaction, user):
            embed.add_field(name = 'n!hug', value ='n!hug @user',inline = False)
            embed.add_field(name = 'n!joke', value ='n!joke',inline = False)
            embed.add_field(name = 'n!rolldice', value ='n!rolldice (1 -6) choose one',inline = False)
-           embed.set_footer(text="Copyright @ 『🌟』bot development!")
            await client.send_message(user,embed=embed)
      if reaction.emoji == '🎦':
            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
