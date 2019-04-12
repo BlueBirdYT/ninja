@@ -1406,7 +1406,7 @@ async def on_message(message):
     if '<@487552378497662978>' in message.content:
         msg = 'Hello, my prefix is ``n!``, Use ``n!help`` for more information!**'.format(message)
         msg2 = await client.send_message(message.channel, msg)
-    if message.server.id == '552549858557427714':
+    if message.server.id == '560515451914813440':
         return
     if 'fuck' in message.content:
         msg = 'Do not use bad words {0.author.name}'.format(message)
