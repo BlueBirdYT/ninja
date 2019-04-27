@@ -1272,9 +1272,9 @@ async def poll(ctx, question, *options: str):
     
 @client.command(pass_context=True)
 async def ownerinfo(ctx):
-    embed = discord.Embed(title="Information about owner", description="Main Creator: BlueBird", color=0x00ff00)
-    embed.set_author(name=" Bot Owner: BlueBird#0440")
-    embed.add_field(name="Owner: BlueBird#0440", value="He coded the bot")
+    embed = discord.Embed(title="Information about owner", description="Main Creator: Uthsho", color=0x00ff00)
+    embed.set_author(name=" Bot Owner: Uthsho#0440")
+    embed.add_field(name="Owner: Uthsho#0440", value="He coded the bot")
     embed.add_field(name="Co-owner: Shobhit Chauhan#7511", value="He helped in testing the bot")
     embed.add_field(name="bot official website: https://uthsho1244.wixsite.com/ninjabot", value="Note: the website is still in beta so all commands information are not shown!")
     embed.set_image(url="https://cdn.discordapp.com/attachments/546667977181757450/550645098451304458/453b79abdd41725ec9f8dbf22635118a--assassin-game--story.png")
