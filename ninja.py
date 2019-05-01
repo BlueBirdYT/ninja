@@ -1409,7 +1409,7 @@ async def on_message(message,ctx):
     if message.server.id == '560515451914813440':
         return
 if message.channel.name == 'global-chat':
-    for x in ctx.message.server.channel
+    for x in ctx.message.server.channels
     if x.name == global-chat
     await client.send_message(x, '{message.content}\nSent by {ctx.message.author}`)
    
