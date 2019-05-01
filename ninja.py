@@ -1401,7 +1401,7 @@ async def gifsearch(ctx, *keywords):
             await client.say("Error contacting the API")                   
 
 @client.event
-async def on_message(message):
+async def on_message(message,ctx):
     await client.process_commands(message)
     if '<@487552378497662978>' in message.content:
         msg = 'Hello, my prefix is ``n!``, Use ``n!help`` for more information!**'.format(message)
@@ -1409,7 +1409,7 @@ async def on_message(message):
     if message.server.id == '560515451914813440':
         return
 if message.channel.name == 'global-chat':
-    for x in message.server.channel
+    for x in ctx.message.server.channel
     if x.name == global-chat
     await client.send_message(x, '{message.content}\nSent by {ctx.message.author}`)
    
