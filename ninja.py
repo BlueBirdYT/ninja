@@ -1401,7 +1401,7 @@ async def gifsearch(ctx, *keywords):
             await client.say("Error contacting the API")                   
 
 @client.event
-async def on_message(message,ctx):
+async def on_message(message):
     await client.process_commands(message)
     if '<@487552378497662978>' in message.content:
         msg = '__**Hello, my prefix is ``n!``, Use ``n!help`` for more information!**__'.format(message)
