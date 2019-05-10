@@ -1520,6 +1520,7 @@ async def love(ctx, user: discord.Member = None, *, user2: discord.Member = None
 
 @client.event
 async def on_server_join(server):
+	await client.send_message(server.owner, "Thanks for adding me! my prefix is ``n!`` and type ``n!help`` in a channel for more information!")
 	channel = client.get_channel('562605168521379870')
 	r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
 	embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
