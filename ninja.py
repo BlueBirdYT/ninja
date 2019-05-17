@@ -1541,6 +1541,14 @@ async def on_server_remove(server):
 		embed.add_field(name = 'Membercount',value =len(server.members),inline = False)
 		await client.send_message(channel,embed=embed) 
             
-            
+
+@client.command(pass_context = True)
+@commands.check(is_owner)
+async def dmall(ctx, *, msg: str):
+    for server_member in ctx.message.server.members:
+      await asyncio.sleep(1)
+      await client.send_message(server_member, msg)
+      await client.delete_message(ctx.message)
+	
     
 client.run(os.getenv('Token'))
