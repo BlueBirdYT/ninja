@@ -285,8 +285,6 @@ async def unlock(ctx, channelname: discord.Channel=None):
 
 @client.command(pass_context = True)
 async def dm(ctx, user: discord.Member, *, msg: str):
-   if mesage.server.id == '580305154486566917':
-	return
    if user is None or msg is None:
        await client.say('Invalid args. Use this command like: ``n!dm @user message``')
    if ctx.message.author.server_permissions.administrator == False:
@@ -1005,6 +1003,8 @@ async def invite():
 @client.command(pass_context = True)
 async def say(ctx, *, msg = None):
     await client.delete_message(ctx.message)
+    if mesage.server.id == '580305154486566917':
+      return
     if ctx.message.author.bot:
       return
     else:
