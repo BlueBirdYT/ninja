@@ -1,4 +1,4 @@
-discord.py
+discord.py==0.16.0
 asyncio
 requests
 pynacl==1.2.1
